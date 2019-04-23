@@ -7,7 +7,8 @@ public class Asprak {
     public int getNim() {
         return nim;
     }
-
+    
+    
     public void setNim(int nim) {
         this.nim = nim;
     }
