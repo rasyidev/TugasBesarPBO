@@ -1,16 +1,15 @@
 package penjelasan;
-public class Asprak {
-    int nim;
+public class Asprak_atau_Dosen {
+    char NIMorNIK;
     String nama;
     int id_jadwal;
 
-    public int getNim() {
-        return nim;
+    public char getNIMorNIK() {
+        return NIMorNIK;
     }
-    
-    
-    public void setNim(int nim) {
-        this.nim = nim;
+
+    public void setNIMorNIK(char NIMorNIK) {
+        this.NIMorNIK = NIMorNIK;
     }
 
     public String getNama() {
@@ -29,10 +28,11 @@ public class Asprak {
         this.id_jadwal = id_jadwal;
     }
 
-    public Asprak(int nim, String nama, int id_jadwal) {
-        this.nim = nim;
+    public Asprak_atau_Dosen(char NIMorNIK, String nama, int id_jadwal) {
+        this.NIMorNIK = NIMorNIK;
         this.nama = nama;
         this.id_jadwal = id_jadwal;
     }
+
     
 }
