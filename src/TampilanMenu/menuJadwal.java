@@ -48,7 +48,7 @@ public class menuJadwal extends javax.swing.JFrame {
         tfpesan = new javax.swing.JTextField();
         jlkodealab = new javax.swing.JLabel();
         tfkodelab = new javax.swing.JTextField();
-        btnLab = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +68,11 @@ public class menuJadwal extends javax.swing.JFrame {
                 tbljadwalAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        tbljadwal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbljadwalMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tbljadwal);
@@ -126,12 +131,7 @@ public class menuJadwal extends javax.swing.JFrame {
 
         jlkodealab.setText("kode lab");
 
-        btnLab.setText("LAB");
-        btnLab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("MIDIFIKASI DATA JADWAL");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,35 +166,33 @@ public class menuJadwal extends javax.swing.JFrame {
                                     .addComponent(tfid)
                                     .addComponent(tfprodi)
                                     .addComponent(tfmatkul)
-                                    .addComponent(tfkodelab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))
-                                .addGap(188, 188, 188)
-                                .addComponent(btnLab, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 144, Short.MAX_VALUE))
+                                    .addComponent(tfkodelab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))))
+                        .addGap(0, 459, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(436, 436, 436))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(tfid)))
+                        .addComponent(tfid, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfprodi))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfmatkul)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(btnLab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfprodi))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfmatkul))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlhari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +205,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlkodealab, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfkodelab))
-                .addGap(73, 73, 73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd)
                     .addComponent(btnupdate)
@@ -281,11 +279,16 @@ public class menuJadwal extends javax.swing.JFrame {
     
     }//GEN-LAST:event_tbljadwalAncestorAdded
 
-    private void btnLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabActionPerformed
-        formLab n = new formLab();
-        n.setVisible(true); //menampilkan form yang dituju
-       this.setVisible(false); // menghilangkan form saat ini
-    }//GEN-LAST:event_btnLabActionPerformed
+    private void tbljadwalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbljadwalMouseClicked
+       DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
+       tfid.setText(model.getValueAt(tbljadwal.getSelectedRow(), 0).toString());
+       tfprodi.setText(model.getValueAt(tbljadwal.getSelectedRow(), 1).toString());
+       tfmatkul.setText(model.getValueAt(tbljadwal.getSelectedRow(), 2).toString());
+       cmbhari.setSelectedItem(model.getValueAt(tbljadwal.getSelectedRow(), 3).toString());
+       tfjam.setText(model.getValueAt(tbljadwal.getSelectedRow(), 4).toString());
+       tfkodelab.setText(model.getValueAt(tbljadwal.getSelectedRow(), 5).toString());
+               
+    }//GEN-LAST:event_tbljadwalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -322,12 +325,12 @@ public class menuJadwal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLab;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox cmbhari;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLidjadwal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlhari;
