@@ -6,6 +6,13 @@
 package TampilanMenu;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -13,11 +20,40 @@ import javax.swing.table.DefaultTableModel;
  */
 public class menuJadwal extends javax.swing.JFrame {
 
+    private void tampilkandata(){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("id jadwal");
+        x.addColumn("program studi");
+        x.addColumn("mata kuliah");
+        x.addColumn("hari");
+        x.addColumn("jam");
+        x.addColumn("kode lab");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from jadwal";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(6),rset.getString(5),rset.getString(4)});
+            }
+            tbljadwal.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
     /**
      * Creates new form login
      */
     public menuJadwal() {
         initComponents();
+        tampilkandata();
     }
 
     /**
@@ -244,12 +280,21 @@ public class menuJadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
-        if(!tfid.getText().trim().equals("")){
-            model.addRow(new Object[] {tfid.getText(),tfprodi.getText(),tfmatkul.getText(),cmbhari.getSelectedItem().toString(),tfjam.getText(),tfkodelab.getText()});
-                
-        }else{
-            tfpesan.setText("id jadwal tidak boleh kosong");
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String insert = "insert into jadwal values ("+tfid.getText()+",'"+tfprodi.getText()+"','"+tfmatkul.getText()+"','"+
+                    tfkodelab.getText()+"','"+cmbhari.getSelectedItem()+"','"+tfjam.getText()+"')";
+            stmt.executeUpdate(insert);
+            tfpesan.setText("tambah data berhasil");
+            tampilkandata();        
+            
+        } catch (SQLException ex) {
+            tfpesan.setText("gagal tambah data");
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
@@ -275,20 +320,20 @@ public class menuJadwal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfpesanActionPerformed
 
-    private void tbljadwalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbljadwalAncestorAdded
-    
-    }//GEN-LAST:event_tbljadwalAncestorAdded
-
     private void tbljadwalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbljadwalMouseClicked
-       DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
-       tfid.setText(model.getValueAt(tbljadwal.getSelectedRow(), 0).toString());
-       tfprodi.setText(model.getValueAt(tbljadwal.getSelectedRow(), 1).toString());
-       tfmatkul.setText(model.getValueAt(tbljadwal.getSelectedRow(), 2).toString());
-       cmbhari.setSelectedItem(model.getValueAt(tbljadwal.getSelectedRow(), 3).toString());
-       tfjam.setText(model.getValueAt(tbljadwal.getSelectedRow(), 4).toString());
-       tfkodelab.setText(model.getValueAt(tbljadwal.getSelectedRow(), 5).toString());
-               
+        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
+        tfid.setText(model.getValueAt(tbljadwal.getSelectedRow(), 0).toString());
+        tfprodi.setText(model.getValueAt(tbljadwal.getSelectedRow(), 1).toString());
+        tfmatkul.setText(model.getValueAt(tbljadwal.getSelectedRow(), 2).toString());
+        cmbhari.setSelectedItem(model.getValueAt(tbljadwal.getSelectedRow(), 3).toString());
+        tfjam.setText(model.getValueAt(tbljadwal.getSelectedRow(), 4).toString());
+        tfkodelab.setText(model.getValueAt(tbljadwal.getSelectedRow(), 5).toString());
+
     }//GEN-LAST:event_tbljadwalMouseClicked
+
+    private void tbljadwalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbljadwalAncestorAdded
+
+    }//GEN-LAST:event_tbljadwalAncestorAdded
 
     /**
      * @param args the command line arguments
