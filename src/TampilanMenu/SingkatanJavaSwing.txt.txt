@@ -1,2 +1,0 @@
-Button btn
-TexField tf

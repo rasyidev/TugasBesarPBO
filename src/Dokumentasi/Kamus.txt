@@ -1,0 +1,9 @@
+#Kamus
+
+@ Dokumentasi
+    Berisi file kamus. File kamus berisi istilah - istilah yang digunakan
+    dalam project ini.
+
+@ TampilanMenu
+Button btn
+TexField tf
