@@ -28,7 +28,17 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Component id="tfpesan" min="-2" pref="518" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnadd" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btndelete" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btncancel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLidjadwal" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
                                   <Component id="jljam" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
@@ -46,19 +56,11 @@
                                   <Component id="tfmatkul" alignment="0" max="32767" attributes="0"/>
                                   <Component id="tfkodelab" alignment="1" pref="349" max="32767" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Component id="tfpesan" min="-2" pref="518" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnadd" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="btndelete" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="btncancel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+                              <Component id="btnLab" min="-2" pref="167" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="459" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="144" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
               </Group>
@@ -78,14 +80,22 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlprodi" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="tfprodi" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlmatkul" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="tfmatkul" alignment="3" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlprodi" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="tfprodi" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jlmatkul" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="tfmatkul" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                      <Component id="btnLab" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -102,7 +112,7 @@
                   <Component id="jlkodealab" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="tfkodelab" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnadd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnupdate" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -240,6 +250,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfkodelab">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLab">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LAB"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

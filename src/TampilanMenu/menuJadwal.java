@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tugasbesarpbo;
+package TampilanMenu;
 
 
 import javax.swing.table.DefaultTableModel;
@@ -48,6 +48,7 @@ public class menuJadwal extends javax.swing.JFrame {
         tfpesan = new javax.swing.JTextField();
         jlkodealab = new javax.swing.JLabel();
         tfkodelab = new javax.swing.JTextField();
+        btnLab = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +126,13 @@ public class menuJadwal extends javax.swing.JFrame {
 
         jlkodealab.setText("kode lab");
 
+        btnLab.setText("LAB");
+        btnLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLabActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,6 +142,15 @@ public class menuJadwal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnadd)
+                                .addGap(48, 48, 48)
+                                .addComponent(btnupdate)
+                                .addGap(18, 18, 18)
+                                .addComponent(btndelete)
+                                .addGap(30, 30, 30)
+                                .addComponent(btncancel))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,17 +166,10 @@ public class menuJadwal extends javax.swing.JFrame {
                                     .addComponent(tfid)
                                     .addComponent(tfprodi)
                                     .addComponent(tfmatkul)
-                                    .addComponent(tfkodelab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)))
-                            .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnadd)
-                                .addGap(35, 35, 35)
-                                .addComponent(btnupdate)
-                                .addGap(31, 31, 31)
-                                .addComponent(btndelete)
-                                .addGap(30, 30, 30)
-                                .addComponent(btncancel)))
-                        .addGap(0, 459, Short.MAX_VALUE))
+                                    .addComponent(tfkodelab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))
+                                .addGap(188, 188, 188)
+                                .addComponent(btnLab, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 144, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -173,13 +183,18 @@ public class menuJadwal extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(tfid)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfprodi))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfmatkul))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfprodi))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfmatkul)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btnLab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlhari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,7 +207,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlkodealab, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfkodelab))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd)
                     .addComponent(btnupdate)
@@ -263,8 +278,14 @@ public class menuJadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_tfpesanActionPerformed
 
     private void tbljadwalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbljadwalAncestorAdded
-  
+    
     }//GEN-LAST:event_tbljadwalAncestorAdded
+
+    private void btnLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabActionPerformed
+        formLab n = new formLab();
+        n.setVisible(true); //menampilkan form yang dituju
+       this.setVisible(false); // menghilangkan form saat ini
+    }//GEN-LAST:event_btnLabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +322,7 @@ public class menuJadwal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLab;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btndelete;
@@ -321,4 +343,6 @@ public class menuJadwal extends javax.swing.JFrame {
     private javax.swing.JTextField tfpesan;
     private javax.swing.JTextField tfprodi;
     // End of variables declaration//GEN-END:variables
+
+    
 }
