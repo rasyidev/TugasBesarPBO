@@ -5,17 +5,50 @@
  */
 package TampilanMenu;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USER
  */
 public class formLab extends javax.swing.JFrame {
-
+    private void tampilkandata(){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("KODE LAB");
+        x.addColumn("NAMA LAB");
+        x.addColumn("RUANG LAB");
+        x.addColumn("KAPASITAS");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from lab";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
+            }
+            tbllab.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
     /**
      * Creates new form formLab
      */
     public formLab() {
         initComponents();
+        tampilkandata();
     }
 
     /**
@@ -32,12 +65,18 @@ public class formLab extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tfkodelab = new javax.swing.JTextField();
+        tfnamalab = new javax.swing.JTextField();
+        tfruang = new javax.swing.JTextField();
+        tfkapasitas = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbllab = new javax.swing.JTable();
+        btnupdate = new javax.swing.JButton();
+        btnadd = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
+        tfpesan = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -55,51 +94,47 @@ public class formLab extends javax.swing.JFrame {
         setTitle("LABKOM ITERA");
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setName("LABKOM ITERA"); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("KODE LAB");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 73, -1, -1));
 
         jLabel2.setText("RUANG LAB");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 152, -1, -1));
 
         jLabel3.setText("NAMA LAB");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 114, -1, -1));
 
         jLabel4.setText("KAPASITAS");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 187, -1, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfkodelab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfkodelabActionPerformed(evt);
             }
         });
+        getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 70, 244, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfnamalab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfnamalabActionPerformed(evt);
             }
         });
+        getContentPane().add(tfnamalab, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 108, 244, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        tfruang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                tfruangActionPerformed(evt);
             }
         });
+        getContentPane().add(tfruang, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 146, 244, -1));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfkapasitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfkapasitasActionPerformed(evt);
             }
         });
-
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\index.png")); // NOI18N
-        jButton1.setText("SAVE");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mouseclickkelab(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        getContentPane().add(tfkapasitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 184, 244, -1));
 
         jButton2.setText("CANCEL");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -107,79 +142,68 @@ public class formLab extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        setJMenuBar(jMenuBar1);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 325, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(646, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(52, 52, 52))
-        );
+        tbllab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "KODE LAB", "NAMA LAB", "RUANG LAB", "KAPASITAS"
+            }
+        ));
+        tbllab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbllabMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbllab);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 70, 571, 278));
+
+        btnupdate.setText("UPDATE");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 258, -1, -1));
+
+        btnadd.setText("ADD");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 258, -1, -1));
+
+        btndelete.setText("DELETE");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 325, -1, -1));
+        getContentPane().add(tfpesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 393, 340, 80));
+
+        jLabel5.setText("MODIFIKASI DATA LAB");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 11, -1, 41));
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfkodelabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfkodelabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfkodelabActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfnamalabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnamalabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfnamalabActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void tfkapasitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfkapasitasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_tfkapasitasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         menuJadwal x = new menuJadwal();
@@ -187,13 +211,71 @@ public class formLab extends javax.swing.JFrame {
         this.setVisible(false); //menghilangkan form saat ini
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void tfruangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfruangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_tfruangActionPerformed
 
-    private void mouseclickkelab(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseclickkelab
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mouseclickkelab
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String update = "update lab set kode_lab='"+tfkodelab.getText()+"',nama_lab='"+tfnamalab.getText()+"',nama_ruang='"+tfruang.getText()+
+                    "',kapasitas="+tfkapasitas.getText()+" where kode_lab='"+tfkodelab.getText()+"'";
+            stmt.executeUpdate(update);
+            tfpesan.setText("update data berhasil");
+            tampilkandata();
+        }catch (SQLException ex) {
+            tfpesan.setText("gagal update data");
+        }
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String insert = "insert into lab values ('"+tfkodelab.getText()+"','"+tfnamalab.getText()+"','"+tfruang.getText()+"',"+
+                    tfkapasitas.getText()+")";
+            stmt.executeUpdate(insert);
+            tfpesan.setText("tambah data berhasil");
+            tampilkandata();        
+            
+        } catch (SQLException ex) {
+            tfpesan.setText("gagal tambah data");
+        }
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String delete = "delete from lab where kode_lab = '"+tfkodelab.getText()+"'";
+            stmt.executeUpdate(delete);
+            tfpesan.setText("hapus data berhasil");
+            tampilkandata();
+        }catch (SQLException ex) {
+            tfpesan.setText("gagal hapus data");
+        }
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void tbllabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbllabMouseClicked
+       DefaultTableModel model = (DefaultTableModel) tbllab.getModel();
+       tfkodelab.setText(model.getValueAt(tbllab.getSelectedRow(), 0).toString());
+       tfnamalab.setText(model.getValueAt(tbllab.getSelectedRow(), 1).toString());
+       tfruang.setText(model.getValueAt(tbllab.getSelectedRow(), 2).toString());
+       tfkapasitas.setText(model.getValueAt(tbllab.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_tbllabMouseClicked
 
     /**
      * @param args the command line arguments
@@ -232,17 +314,23 @@ public class formLab extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnadd;
+    private javax.swing.JButton btndelete;
+    private javax.swing.JButton btnupdate;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tbllab;
+    private javax.swing.JTextField tfkapasitas;
+    private javax.swing.JTextField tfkodelab;
+    private javax.swing.JTextField tfnamalab;
+    private javax.swing.JTextField tfpesan;
+    private javax.swing.JTextField tfruang;
     // End of variables declaration//GEN-END:variables
 }

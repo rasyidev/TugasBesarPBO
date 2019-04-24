@@ -6,6 +6,11 @@
 package TampilanMenu;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -13,11 +18,40 @@ import javax.swing.table.DefaultTableModel;
  */
 public class menuJadwal extends javax.swing.JFrame {
 
+    private void tampilkandata(){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("id jadwal");
+        x.addColumn("program studi");
+        x.addColumn("mata kuliah");
+        x.addColumn("hari");
+        x.addColumn("jam");
+        x.addColumn("kode lab");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from jadwal";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
+            }
+            tbljadwal.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
     /**
      * Creates new form login
      */
     public menuJadwal() {
         initComponents();
+        tampilkandata();
     }
 
     /**
@@ -48,9 +82,14 @@ public class menuJadwal extends javax.swing.JFrame {
         tfpesan = new javax.swing.JTextField();
         jlkodealab = new javax.swing.JLabel();
         tfkodelab = new javax.swing.JTextField();
-        btnLab = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1022, 500));
+        setMinimumSize(new java.awt.Dimension(100, 200));
+        setPreferredSize(new java.awt.Dimension(1022, 800));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbljadwal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,36 +98,52 @@ public class menuJadwal extends javax.swing.JFrame {
             new String [] {
                 "id jadwal", "program studi", "mata kuliah", "hari", "jam", "kode lab"
             }
-        ));
-        tbljadwal.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
-        tbljadwal.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                tbljadwalAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+        });
+        tbljadwal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tbljadwal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbljadwalMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tbljadwal);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 1001, 151));
+
         jLidjadwal.setText("id jadwal");
+        getContentPane().add(jLidjadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 69, 24));
 
         jlmatkul.setText("mata kuliah");
+        getContentPane().add(jlmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 112, 69, 24));
 
         jlprodi.setText("program studi");
+        getContentPane().add(jlprodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 75, 103, 24));
 
         jljam.setText("jam");
+        getContentPane().add(jljam, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 177, 69, 24));
 
         jlhari.setText("hari");
+        getContentPane().add(jlhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 147, 69, 24));
 
         tfid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfidActionPerformed(evt);
             }
         });
+        getContentPane().add(tfid, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 41, 349, 22));
+        getContentPane().add(tfprodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 75, 349, 26));
+        getContentPane().add(tfmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 114, 349, -1));
+        getContentPane().add(tfjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 179, 349, -1));
 
         cmbhari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" }));
+        getContentPane().add(cmbhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 149, 349, -1));
 
         btnadd.setText("add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +151,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 242, -1, -1));
 
         btndelete.setText("delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +159,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 242, -1, -1));
 
         btnupdate.setText("update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +167,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 242, -1, -1));
 
         btncancel.setText("cancel");
         btncancel.addActionListener(new java.awt.event.ActionListener() {
@@ -117,108 +175,21 @@ public class menuJadwal extends javax.swing.JFrame {
                 btncancelActionPerformed(evt);
             }
         });
+        getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 242, 90, -1));
 
         tfpesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfpesanActionPerformed(evt);
             }
         });
+        getContentPane().add(tfpesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 278, 518, 64));
 
         jlkodealab.setText("kode lab");
+        getContentPane().add(jlkodealab, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 207, 69, 24));
+        getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 209, 349, -1));
 
-        btnLab.setText("LAB");
-        btnLab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnadd)
-                                .addGap(48, 48, 48)
-                                .addComponent(btnupdate)
-                                .addGap(18, 18, 18)
-                                .addComponent(btndelete)
-                                .addGap(30, 30, 30)
-                                .addComponent(btncancel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jljam, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlhari, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlkodealab, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfjam, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                                    .addComponent(cmbhari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfid)
-                                    .addComponent(tfprodi)
-                                    .addComponent(tfmatkul)
-                                    .addComponent(tfkodelab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))
-                                .addGap(188, 188, 188)
-                                .addComponent(btnLab, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 144, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(tfid)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfprodi))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfmatkul)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(btnLab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlhari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbhari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jljam, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfjam))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlkodealab, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfkodelab))
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnadd)
-                    .addComponent(btnupdate)
-                    .addComponent(btndelete)
-                    .addComponent(btncancel))
-                .addGap(18, 18, 18)
-                .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setText("MIDIFIKASI DATA JADWAL");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 0, 160, 34));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,44 +199,56 @@ public class menuJadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_tfidActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
-        if(tbljadwal.getSelectedRow()==-1){
-            if(tbljadwal.getRowCount()==0){
-                tfpesan.setText("table kosong");
-            }else{
-                tfpesan.setText("pilih kolom");
-            }
-        }else{
-            model.setValueAt(tfid.getText(),tbljadwal.getSelectedRow(),0);
-            model.setValueAt(tfprodi.getText(),tbljadwal.getSelectedRow(),1);
-            model.setValueAt(tfmatkul.getText(),tbljadwal.getSelectedRow(),2);
-            model.setValueAt(cmbhari.getSelectedItem().toString(),tbljadwal.getSelectedRow(),3);
-            model.setValueAt(tfjam.getText(),tbljadwal.getSelectedRow(),4);
-            model.setValueAt(tfkodelab.getText(),tbljadwal.getSelectedRow(),5);
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String update = "update jadwal set id_jadwal="+tfid.getText()+",prodi='"+tfprodi.getText()+"',mata_kuliah='"+tfmatkul.getText()+
+                    "',kode_lab='"+tfkodelab.getText()+"',hari='"+cmbhari.getSelectedItem()+"',jam='"+tfjam.getText()+"' where id_jadwal = '"+tfid.getText()+"'";
+            stmt.executeUpdate(update);
+            tfpesan.setText("update data berhasil");
+            tampilkandata();
+        }catch (SQLException ex) {
+            tfpesan.setText("gagal update data");
         }
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
-        if(!tfid.getText().trim().equals("")){
-            model.addRow(new Object[] {tfid.getText(),tfprodi.getText(),tfmatkul.getText(),cmbhari.getSelectedItem().toString(),tfjam.getText(),tfkodelab.getText()});
-                
-        }else{
-            tfpesan.setText("id jadwal tidak boleh kosong");
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String insert = "insert into jadwal values ("+tfid.getText()+",'"+tfprodi.getText()+"','"+tfmatkul.getText()+"','"+
+                    tfkodelab.getText()+"','"+cmbhari.getSelectedItem()+"','"+tfjam.getText()+"')";
+            stmt.executeUpdate(insert);
+            tfpesan.setText("tambah data berhasil");
+            tampilkandata();        
+            
+        } catch (SQLException ex) {
+            tfpesan.setText("gagal tambah data");
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
-        if(tbljadwal.getSelectedRow()==-1){
-            if(tbljadwal.getRowCount()==0){
-                tfpesan.setText("table kosong");
-            }else{
-                tfpesan.setText("pilih kolom");
-            }
-        }else{
-            model.removeRow(tbljadwal.getSelectedRow());
-           
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String delete = "delete from jadwal where id_jadwal = '"+tfid.getText()+"'";
+            stmt.executeUpdate(delete);
+            tfpesan.setText("hapus data berhasil");
+            tampilkandata();
+        }catch (SQLException ex) {
+            tfpesan.setText("gagal hapus data");
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 
@@ -277,15 +260,16 @@ public class menuJadwal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfpesanActionPerformed
 
-    private void tbljadwalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbljadwalAncestorAdded
-    
-    }//GEN-LAST:event_tbljadwalAncestorAdded
+    private void tbljadwalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbljadwalMouseClicked
+        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
+        tfid.setText(model.getValueAt(tbljadwal.getSelectedRow(), 0).toString());
+        tfprodi.setText(model.getValueAt(tbljadwal.getSelectedRow(), 1).toString());
+        tfmatkul.setText(model.getValueAt(tbljadwal.getSelectedRow(), 2).toString());
+        cmbhari.setSelectedItem(model.getValueAt(tbljadwal.getSelectedRow(), 3).toString());
+        tfjam.setText(model.getValueAt(tbljadwal.getSelectedRow(), 4).toString());
+        tfkodelab.setText(model.getValueAt(tbljadwal.getSelectedRow(), 5).toString());
 
-    private void btnLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabActionPerformed
-        formLab n = new formLab();
-        n.setVisible(true); //menampilkan form yang dituju
-       this.setVisible(false); // menghilangkan form saat ini
-    }//GEN-LAST:event_btnLabActionPerformed
+    }//GEN-LAST:event_tbljadwalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -322,12 +306,12 @@ public class menuJadwal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLab;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox cmbhari;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLidjadwal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlhari;
