@@ -6,6 +6,8 @@
 package TampilanMenu;
 
 import javax.swing.table.DefaultTableModel;
+import penjelasan.Jadwal;
+import penjelasan.Laboran;
 
 /**
  *
