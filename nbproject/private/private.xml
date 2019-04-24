@@ -2,6 +2,28 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/penjelasan/Jadwal.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/tugasbesarpbo/TugasBesarPBO.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/TampilanMenu/SignUp.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/penjelasan/Asprak_atau_Dosen.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/TampilanMenu/menuJadwal.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/Dokumentasi/Kamus.txt</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/penjelasan/User.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/penjelasan/Laboran.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/TugasBesarPBO/src/TampilanMenu/formLab.java</file>
+=======
+            <file>file:/C:/Users/USER/Documents/GitHub/TugasBesarPBO/src/TampilanMenu/formLab.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/TugasBesarPBO/src/TampilanMenu/Masuk.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/TugasBesarPBO/src/TampilanMenu/MenuAsprak.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/TugasBesarPBO/src/TampilanMenu/MenuUtama.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/TugasBesarPBO/src/TampilanMenu/menuJadwal.java</file>
+>>>>>>> 9821ad8437e3be9cdc56040fdd3d27a22dd6cae8
+        </group>
+>>>>>>> origin/master
     </open-files>
 </project-private>

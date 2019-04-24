@@ -85,7 +85,11 @@ public class menuJadwal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setMaximumSize(new java.awt.Dimension(1022, 500));
+        setMinimumSize(new java.awt.Dimension(100, 200));
+        setPreferredSize(new java.awt.Dimension(1022, 800));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbljadwal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,46 +115,35 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbljadwal);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 358, 1001, 151);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 1001, 151));
 
         jLidjadwal.setText("id jadwal");
-        getContentPane().add(jLidjadwal);
-        jLidjadwal.setBounds(24, 52, 69, 24);
+        getContentPane().add(jLidjadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 69, 24));
 
         jlmatkul.setText("mata kuliah");
-        getContentPane().add(jlmatkul);
-        jlmatkul.setBounds(24, 110, 69, 24);
+        getContentPane().add(jlmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 112, 69, 24));
 
         jlprodi.setText("program studi");
-        getContentPane().add(jlprodi);
-        jlprodi.setBounds(24, 82, 103, 24);
+        getContentPane().add(jlprodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 75, 103, 24));
 
         jljam.setText("jam");
-        getContentPane().add(jljam);
-        jljam.setBounds(24, 175, 69, 24);
+        getContentPane().add(jljam, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 177, 69, 24));
 
         jlhari.setText("hari");
-        getContentPane().add(jlhari);
-        jlhari.setBounds(24, 145, 69, 24);
+        getContentPane().add(jlhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 147, 69, 24));
 
         tfid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfidActionPerformed(evt);
             }
         });
-        getContentPane().add(tfid);
-        tfid.setBounds(153, 54, 349, 22);
-        getContentPane().add(tfprodi);
-        tfprodi.setBounds(153, 84, 349, 20);
-        getContentPane().add(tfmatkul);
-        tfmatkul.setBounds(153, 112, 349, 20);
-        getContentPane().add(tfjam);
-        tfjam.setBounds(153, 177, 349, 20);
+        getContentPane().add(tfid, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 41, 349, 22));
+        getContentPane().add(tfprodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 75, 349, 26));
+        getContentPane().add(tfmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 114, 349, -1));
+        getContentPane().add(tfjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 179, 349, -1));
 
         cmbhari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" }));
-        getContentPane().add(cmbhari);
-        cmbhari.setBounds(153, 147, 349, 20);
+        getContentPane().add(cmbhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 149, 349, -1));
 
         btnadd.setText("add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
@@ -158,8 +151,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnadd);
-        btnadd.setBounds(24, 235, 51, 23);
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 242, -1, -1));
 
         btndelete.setText("delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
@@ -167,8 +159,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btndelete);
-        btndelete.setBounds(208, 235, 63, 23);
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 242, -1, -1));
 
         btnupdate.setText("update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -176,8 +167,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnupdate);
-        btnupdate.setBounds(123, 235, 67, 23);
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 242, -1, -1));
 
         btncancel.setText("cancel");
         btncancel.addActionListener(new java.awt.event.ActionListener() {
@@ -185,26 +175,21 @@ public class menuJadwal extends javax.swing.JFrame {
                 btncancelActionPerformed(evt);
             }
         });
-        getContentPane().add(btncancel);
-        btncancel.setBounds(301, 235, 63, 23);
+        getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 242, 90, -1));
 
         tfpesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfpesanActionPerformed(evt);
             }
         });
-        getContentPane().add(tfpesan);
-        tfpesan.setBounds(24, 276, 518, 64);
+        getContentPane().add(tfpesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 278, 518, 64));
 
         jlkodealab.setText("kode lab");
-        getContentPane().add(jlkodealab);
-        jlkodealab.setBounds(24, 205, 69, 24);
-        getContentPane().add(tfkodelab);
-        tfkodelab.setBounds(153, 207, 349, 20);
+        getContentPane().add(jlkodealab, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 207, 69, 24));
+        getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 209, 349, -1));
 
         jLabel1.setText("MIDIFIKASI DATA JADWAL");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(445, 0, 130, 34);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 0, 160, 34));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,7 +243,7 @@ public class menuJadwal extends javax.swing.JFrame {
                     "");
                 Statement stmt = conn.createStatement();
         ){
-            String delete = "delete from jadwal"+" where id_jadwal = '"+tfid.getText()+"'";
+            String delete = "delete from jadwal where id_jadwal = '"+tfid.getText()+"'";
             stmt.executeUpdate(delete);
             tfpesan.setText("hapus data berhasil");
             tampilkandata();
