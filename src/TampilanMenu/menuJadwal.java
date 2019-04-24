@@ -85,6 +85,7 @@ public class menuJadwal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         tbljadwal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,6 +103,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbljadwal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tbljadwal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbljadwalMouseClicked(evt);
@@ -109,23 +111,46 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbljadwal);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 358, 1001, 151);
+
         jLidjadwal.setText("id jadwal");
+        getContentPane().add(jLidjadwal);
+        jLidjadwal.setBounds(24, 52, 69, 24);
 
         jlmatkul.setText("mata kuliah");
+        getContentPane().add(jlmatkul);
+        jlmatkul.setBounds(24, 110, 69, 24);
 
         jlprodi.setText("program studi");
+        getContentPane().add(jlprodi);
+        jlprodi.setBounds(24, 82, 103, 24);
 
         jljam.setText("jam");
+        getContentPane().add(jljam);
+        jljam.setBounds(24, 175, 69, 24);
 
         jlhari.setText("hari");
+        getContentPane().add(jlhari);
+        jlhari.setBounds(24, 145, 69, 24);
 
         tfid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfidActionPerformed(evt);
             }
         });
+        getContentPane().add(tfid);
+        tfid.setBounds(153, 54, 349, 22);
+        getContentPane().add(tfprodi);
+        tfprodi.setBounds(153, 84, 349, 20);
+        getContentPane().add(tfmatkul);
+        tfmatkul.setBounds(153, 112, 349, 20);
+        getContentPane().add(tfjam);
+        tfjam.setBounds(153, 177, 349, 20);
 
         cmbhari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" }));
+        getContentPane().add(cmbhari);
+        cmbhari.setBounds(153, 147, 349, 20);
 
         btnadd.setText("add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +158,8 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
+        getContentPane().add(btnadd);
+        btnadd.setBounds(24, 235, 51, 23);
 
         btndelete.setText("delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +167,8 @@ public class menuJadwal extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
+        getContentPane().add(btndelete);
+        btndelete.setBounds(208, 235, 63, 23);
 
         btnupdate.setText("update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +176,8 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnupdate);
+        btnupdate.setBounds(123, 235, 67, 23);
 
         btncancel.setText("cancel");
         btncancel.addActionListener(new java.awt.event.ActionListener() {
@@ -154,101 +185,26 @@ public class menuJadwal extends javax.swing.JFrame {
                 btncancelActionPerformed(evt);
             }
         });
+        getContentPane().add(btncancel);
+        btncancel.setBounds(301, 235, 63, 23);
 
         tfpesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfpesanActionPerformed(evt);
             }
         });
+        getContentPane().add(tfpesan);
+        tfpesan.setBounds(24, 276, 518, 64);
 
         jlkodealab.setText("kode lab");
+        getContentPane().add(jlkodealab);
+        jlkodealab.setBounds(24, 205, 69, 24);
+        getContentPane().add(tfkodelab);
+        tfkodelab.setBounds(153, 207, 349, 20);
 
         jLabel1.setText("MIDIFIKASI DATA JADWAL");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnadd)
-                                .addGap(48, 48, 48)
-                                .addComponent(btnupdate)
-                                .addGap(18, 18, 18)
-                                .addComponent(btndelete)
-                                .addGap(30, 30, 30)
-                                .addComponent(btncancel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jljam, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlhari, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlkodealab, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfjam, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                                    .addComponent(cmbhari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfid)
-                                    .addComponent(tfprodi)
-                                    .addComponent(tfmatkul)
-                                    .addComponent(tfkodelab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))))
-                        .addGap(0, 459, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(436, 436, 436))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(tfid, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlprodi, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfprodi))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfmatkul))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlhari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbhari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jljam, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfjam))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlkodealab, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfkodelab))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnadd)
-                    .addComponent(btnupdate)
-                    .addComponent(btndelete)
-                    .addComponent(btncancel))
-                .addGap(18, 18, 18)
-                .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(445, 0, 130, 34);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
