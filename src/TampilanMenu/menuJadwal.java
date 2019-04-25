@@ -29,7 +29,7 @@ public class menuJadwal extends javax.swing.JFrame {
         
         try(
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
                     "root",
                     "");
                 Statement stmt = conn.createStatement();
@@ -85,9 +85,7 @@ public class menuJadwal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1022, 500));
         setMinimumSize(new java.awt.Dimension(100, 200));
-        setPreferredSize(new java.awt.Dimension(1022, 800));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -199,15 +197,16 @@ public class menuJadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_tfidActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
         try(
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
                     "root",
                     "");
                 Statement stmt = conn.createStatement();
         ){
             String update = "update jadwal set id_jadwal="+tfid.getText()+",prodi='"+tfprodi.getText()+"',mata_kuliah='"+tfmatkul.getText()+
-                    "',kode_lab='"+tfkodelab.getText()+"',hari='"+cmbhari.getSelectedItem()+"',jam='"+tfjam.getText()+"' where id_jadwal = '"+tfid.getText()+"'";
+                    "',kode_lab='"+tfkodelab.getText()+"',hari='"+cmbhari.getSelectedItem()+"',jam='"+tfjam.getText()+"' where id_jadwal = "+model.getValueAt(tbljadwal.getSelectedRow(), 0);
             stmt.executeUpdate(update);
             tfpesan.setText("update data berhasil");
             tampilkandata();
@@ -219,7 +218,7 @@ public class menuJadwal extends javax.swing.JFrame {
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         try(
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
                     "root",
                     "");
                 Statement stmt = conn.createStatement();
@@ -238,7 +237,7 @@ public class menuJadwal extends javax.swing.JFrame {
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
         try(
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera",
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
                     "root",
                     "");
                 Statement stmt = conn.createStatement();

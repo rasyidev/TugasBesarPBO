@@ -5,6 +5,11 @@
  */
 package TampilanMenu;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import penjelasan.Asprak_atau_Dosen;
 import penjelasan.Jadwal;
@@ -14,12 +19,37 @@ import penjelasan.Jadwal;
  * @author USER
  */
 public class MenuAsprak extends javax.swing.JFrame {
-
+private void tampilkandata(){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("NIM atau NIP");
+        x.addColumn("NAMA");
+        x.addColumn("ID JADWAL");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from asprak_atau_dosen";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString("NIMorNIk"),rset.getString("nama"),rset.getString("id_jadwal")});
+            }
+            tblasprak.setModel(x);
+        }catch(SQLException ex){
+          
+        }
+    }
     /**
      * Creates new form MenuAsprak
      */
     public MenuAsprak() {
         initComponents();
+        tampilkandata();
     }
 
     /**
@@ -184,19 +214,23 @@ public class MenuAsprak extends javax.swing.JFrame {
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         DefaultTableModel model = (DefaultTableModel) tblasprak.getModel();
-        if(tblasprak.getSelectedRow()==-1){
-            if(tblasprak.getRowCount()==0){
-                tfpesan.setText("table kosong");
-            }else{
-                tfpesan.setText("pilih kolom");
-            }
-        }else{
-            model.setValueAt(tfnim.getText(),tblasprak.getSelectedRow(),0);
-            model.setValueAt(tfnama.getText(),tblasprak.getSelectedRow(),1);
-            model.setValueAt(tfidjadwal.getText(),tblasprak.getSelectedRow(),2);
-            
-            
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String update = "update asprak_atau_dosen set NIMorNIK='"+tfnim.getText()+"',nama_lab='"+tfnamalab.getText()+"',nama_ruang='"+tfruang.getText()+
+                    "',kapasitas="+tfkapasitas.getText()+" where kode_lab='"+model.getValueAt(tbllab.getSelectedRow(), 0).toString()+"'";
+            stmt.executeUpdate(update);
+            tfpesan.setText("update data berhasil");
+            tampilkandata();
+        }catch (SQLException ex) {
+            tfpesan.setText("gagal update data");
         }
+    }                                         
+
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -219,20 +253,11 @@ public class MenuAsprak extends javax.swing.JFrame {
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tblasprak.getModel();
-        if(!tfnim.getText().trim().equals("")){
-            model.addRow(new Object[] {tfnim.getText(),tfnama.getText(),tfidjadwal.getText()});
-                
-        }else{
-            tfpesan.setText("NIM atau NIP tidak boleh kosong");
-        }
+       
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void tblasprakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblasprakMouseClicked
-        DefaultTableModel model = (DefaultTableModel) tblasprak.getModel();
-       tfnim.setText(model.getValueAt(tblasprak.getSelectedRow(), 0).toString());
-       tfnama.setText(model.getValueAt(tblasprak.getSelectedRow(), 1).toString());
-       tfidjadwal.setText(model.getValueAt(tblasprak.getSelectedRow(), 2).toString());
+       
     }//GEN-LAST:event_tblasprakMouseClicked
 
     /**
