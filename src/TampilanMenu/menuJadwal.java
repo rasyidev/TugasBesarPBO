@@ -17,7 +17,14 @@ import javax.swing.table.DefaultTableModel;
  * @author USER
  */
 public class menuJadwal extends javax.swing.JFrame {
-
+  private void kosongft(){
+        tfid.setText(null);
+        tfprodi.setText(null);
+        tfmatkul.setText(null);
+        cmbhari.setSelectedIndex(0);
+        tfjam.setText(null);
+        tfkodelab.setText(null);
+    }
     private void tampilkandata(){
         DefaultTableModel x = new DefaultTableModel();
         x.addColumn("id jadwal");
@@ -210,6 +217,7 @@ public class menuJadwal extends javax.swing.JFrame {
             stmt.executeUpdate(update);
             tfpesan.setText("update data berhasil");
             tampilkandata();
+            kosongft();
         }catch (SQLException ex) {
             tfpesan.setText("gagal update data");
         }
@@ -228,7 +236,7 @@ public class menuJadwal extends javax.swing.JFrame {
             stmt.executeUpdate(insert);
             tfpesan.setText("tambah data berhasil");
             tampilkandata();        
-            
+            kosongft();
         } catch (SQLException ex) {
             tfpesan.setText("gagal tambah data");
         }
@@ -246,13 +254,17 @@ public class menuJadwal extends javax.swing.JFrame {
             stmt.executeUpdate(delete);
             tfpesan.setText("hapus data berhasil");
             tampilkandata();
+            kosongft();
         }catch (SQLException ex) {
             tfpesan.setText("gagal hapus data");
         }
+        
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
-        System.exit(0);
+        Jadwal x = new Jadwal();
+        x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void tfpesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfpesanActionPerformed
