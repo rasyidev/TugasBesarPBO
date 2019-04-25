@@ -11,8 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
-import penjelasan.Asprak_atau_Dosen;
-import penjelasan.Jadwal;
+
 
 /**
  *
@@ -221,29 +220,32 @@ private void tampilkandata(){
                     "");
                 Statement stmt = conn.createStatement();
         ){
-            String update = "update asprak_atau_dosen set NIMorNIK='"+tfnim.getText()+"',nama_lab='"+tfnamalab.getText()+"',nama_ruang='"+tfruang.getText()+
-                    "',kapasitas="+tfkapasitas.getText()+" where kode_lab='"+model.getValueAt(tbllab.getSelectedRow(), 0).toString()+"'";
+            String update = "update asprak_atau_dosen set NIMorNIK='"+tfnim.getText()+"',nama='"+tfnama.getText()+"',id_jadwal="+tfidjadwal.getText()
+                    +" where NIMorNIK='"+model.getValueAt(tblasprak.getSelectedRow(), 0).toString()+"'";
             stmt.executeUpdate(update);
             tfpesan.setText("update data berhasil");
             tampilkandata();
         }catch (SQLException ex) {
             tfpesan.setText("gagal update data");
         }
-    }                                         
+                                             
 
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tblasprak.getModel();
-        if(tblasprak.getSelectedRow()==-1){
-            if(tblasprak.getRowCount()==0){
-                tfpesan.setText("table kosong");
-            }else{
-                tfpesan.setText("pilih kolom");
-            }
-        }else{
-            model.removeRow(tblasprak.getSelectedRow());
-           
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String delete = "delete from asprak_atau_dosen where NIMorNIK = '"+tfnim.getText()+"'";
+            stmt.executeUpdate(delete);
+            tfpesan.setText("hapus data berhasil");
+            tampilkandata();
+        }catch (SQLException ex) {
+            tfpesan.setText("gagal hapus data");
         }
         
     }//GEN-LAST:event_btndeleteActionPerformed
@@ -253,10 +255,28 @@ private void tampilkandata(){
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-       
+       try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String insert = "insert into asprak_atau_dosen values ('"+tfnim.getText()+"','"+tfnama.getText()+"',"+tfidjadwal.getText()+")";
+            stmt.executeUpdate(insert);
+            tfpesan.setText("tambah data berhasil");
+            tampilkandata();        
+            
+        } catch (SQLException ex) {
+            tfpesan.setText("gagal tambah data");
+        }
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void tblasprakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblasprakMouseClicked
+       DefaultTableModel model = (DefaultTableModel) tblasprak.getModel();
+       tfnim.setText(model.getValueAt(tblasprak.getSelectedRow(), 0).toString());
+       tfnama.setText(model.getValueAt(tblasprak.getSelectedRow(), 1).toString());
+       tfidjadwal.setText(model.getValueAt(tblasprak.getSelectedRow(), 2).toString());
        
     }//GEN-LAST:event_tblasprakMouseClicked
 
@@ -312,3 +332,4 @@ private void tampilkandata(){
     private javax.swing.JTextField tfpesan;
     // End of variables declaration//GEN-END:variables
 }
+
