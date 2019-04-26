@@ -40,6 +40,9 @@ public class Masuk extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 255, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusableWindowState(false);
 
         jLabel1.setText("DAFTAR ?");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
