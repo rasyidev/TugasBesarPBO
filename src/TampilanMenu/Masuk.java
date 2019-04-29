@@ -18,6 +18,14 @@ public class Masuk extends javax.swing.JFrame {
     public Masuk() {
         initComponents();
     }
+    public Masuk(String u) {
+        //mengerima username yang baru terdaftar
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.USER.setText(u);
+       
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
