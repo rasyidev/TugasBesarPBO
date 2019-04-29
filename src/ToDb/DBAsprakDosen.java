@@ -20,10 +20,6 @@ public class DBAsprakDosen extends Masuk {
         this.mp = mp;
     }
 
-    public DBAsprakDosen(String text, String text0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public void setSQL(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
