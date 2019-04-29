@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package TampilanMenu;
+import ToDb.DBAsprakDosen;
 
 /**
  *
@@ -40,6 +41,9 @@ public class Masuk extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 255, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusableWindowState(false);
 
         jLabel1.setText("DAFTAR ?");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,6 +59,11 @@ public class Masuk extends javax.swing.JFrame {
         jLabel4.setText("USER NAME");
 
         CMBJENIS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASISTEN PRAKTIKUM", "DOSEN", "LABORAN" }));
+        CMBJENIS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CMBJENISActionPerformed(evt);
+            }
+        });
 
         BTNKELUAR.setText("KELUAR");
         BTNKELUAR.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +164,13 @@ public class Masuk extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
+         new Daftar().setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void CMBJENISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBJENISActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CMBJENISActionPerformed
 
     /**
      * @param args the command line arguments

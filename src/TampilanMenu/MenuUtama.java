@@ -36,7 +36,6 @@ public class MenuUtama extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1022, 500));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -126,7 +125,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        menuJadwal x = new menuJadwal();
+        Jadwal x = new Jadwal();
          x.setVisible(true); //menampilkan form yang dituju
         this.setVisible(false); //menghilangkan form saat ini
     }//GEN-LAST:event_jButton1MouseClicked
