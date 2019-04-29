@@ -42,7 +42,7 @@ public abstract class Masuk {
     }
     
     //konveri password ke md5
-    public String Password(String p){
+    public String md5Password(String p){
         
         String pass = null;
         try {
@@ -109,8 +109,4 @@ public abstract class Masuk {
    
    }
    public abstract  void setSQL();
-
-    private Object md5Password(String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
