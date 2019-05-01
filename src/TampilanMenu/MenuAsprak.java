@@ -320,10 +320,12 @@ private void tampilkandata(){
        
     }//GEN-LAST:event_tblasprakMouseClicked
 
-    private void tampilkancari(String kolom){
+     private void tampilkancari(String kolom){
         DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("NIM atau NIP");
+        x.addColumn("NIM ATAU NIK");
         x.addColumn("NAMA");
+        x.addColumn("ID JADWAL");
+        
         
         try(
             Connection conn = DriverManager.getConnection(
@@ -333,12 +335,12 @@ private void tampilkandata(){
                 Statement stmt = conn.createStatement();
         ){
             String strSelect = "select * from asprak_atau_dosen where NIMorNIK like '%"+kolom+"%' or "+
-                    "%' or nama like '%"+kolom+"%";
+                    "nama like '%"+kolom+"%' or id_jadwal like '%"+kolom+"%'";
             
             ResultSet rset=stmt.executeQuery(strSelect);
             
             while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3)});
             }
             tblasprak.setModel(x);
         }catch(SQLException ex){

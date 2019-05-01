@@ -167,6 +167,12 @@ private void tampilkandata(){
             }
         });
 
+        TFPESAN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFPESANActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("URUTKAN JADWAL");
 
         jLabel4.setText("BERDASARKAN");
@@ -304,6 +310,10 @@ private void tampilkandata(){
         x.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnkembaliActionPerformed
+
+    private void TFPESANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFPESANActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFPESANActionPerformed
 
     /**
      * @param args the command line arguments
