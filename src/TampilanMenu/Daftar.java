@@ -5,7 +5,8 @@
  */
 package TampilanMenu;
 
-import penjelasan.Asprak_atau_Dosen;
+import penjelasan.Asprak;
+import penjelasan.Dosen;
 import javax.swing.JOptionPane;
 
 /**
