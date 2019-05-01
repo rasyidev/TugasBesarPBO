@@ -166,6 +166,12 @@ public class Jadwal extends javax.swing.JFrame {
 
         jLabel2.setText("CARI JADWAL");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 95, -1, 27));
+
+        TFCARI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFCARIActionPerformed(evt);
+            }
+        });
         getContentPane().add(TFCARI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 128, 243, -1));
 
         BTNCARI.setText("CARI");
@@ -261,6 +267,10 @@ public class Jadwal extends javax.swing.JFrame {
         String kolom=TFCARI.getText();
         tampilkancari(kolom);
     }//GEN-LAST:event_BTNCARIActionPerformed
+
+    private void TFCARIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCARIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFCARIActionPerformed
 
     /**
      * @param args the command line arguments

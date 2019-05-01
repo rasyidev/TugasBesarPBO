@@ -74,6 +74,11 @@ private void tampilkandata(){
         btnadd = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblasprak = new javax.swing.JTable();
+        TFCARI = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TFPESAN = new javax.swing.JTextPane();
+        BTNCARI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +139,23 @@ private void tampilkandata(){
         });
         jScrollPane1.setViewportView(tblasprak);
 
+        TFCARI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFCARIActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Cari");
+
+        jScrollPane2.setViewportView(TFPESAN);
+
+        BTNCARI.setText("Cari");
+        BTNCARI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNCARIActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,7 +164,7 @@ private void tampilkandata(){
                 .addGap(392, 392, 392)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -167,7 +189,15 @@ private void tampilkandata(){
                         .addComponent(tfnama, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tfpesan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(BTNCARI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TFCARI, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
@@ -201,7 +231,15 @@ private void tampilkandata(){
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(153, 153, 153))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFCARI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTNCARI))
+                .addGap(78, 78, 78))
         );
 
         pack();
@@ -282,6 +320,44 @@ private void tampilkandata(){
        
     }//GEN-LAST:event_tblasprakMouseClicked
 
+    private void tampilkancari(String kolom){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("NIM atau NIP");
+        x.addColumn("NAMA");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from asprak_atau_dosen where NIMorNIK like '%"+kolom+"%' or "+
+                    "%' or nama like '%"+kolom+"%";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
+            }
+            tblasprak.setModel(x);
+        }catch(SQLException ex){
+            TFPESAN.setText("gagal cari");
+            ex.printStackTrace();
+        }
+    }
+    
+    private void TFCARIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCARIActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TFCARIActionPerformed
+
+    private void BTNCARIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCARIActionPerformed
+        // TODO add your handling code here:
+        String kolom=TFCARI.getText();
+        tampilkancari(kolom);
+    }//GEN-LAST:event_BTNCARIActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,15 +394,20 @@ private void tampilkandata(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNCARI;
+    private javax.swing.JTextField TFCARI;
+    private javax.swing.JTextPane TFPESAN;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnupdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblasprak;
     private javax.swing.JTextField tfidjadwal;
     private javax.swing.JTextField tfnama;
