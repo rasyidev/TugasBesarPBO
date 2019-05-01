@@ -73,6 +73,10 @@ private void tampilkandata(){
         btndelete = new javax.swing.JButton();
         tfpesan = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        TFCARI = new javax.swing.JTextField();
+        TFPESAN = new javax.swing.JTextField();
+        BTNCARI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -154,11 +158,30 @@ private void tampilkandata(){
 
         jLabel5.setText("MODIFIKASI DATA LABORAN");
 
+        jLabel4.setText("Cari");
+
+        BTNCARI.setText("CARI");
+        BTNCARI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNCARIActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 988, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(416, 416, 416)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(TFCARI, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(BTNCARI)
+                        .addGap(18, 18, 18)
+                        .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(322, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -195,7 +218,16 @@ private void tampilkandata(){
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(354, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TFCARI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTNCARI)
+                    .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -257,7 +289,33 @@ private void tampilkandata(){
         tfkode.setText(model.getValueAt(tbllaboran.getSelectedRow(), 2).toString());
         
     }//GEN-LAST:event_tbllaboranMouseClicked
-
+private void tampilkancari(String kolom){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("NID LABORAN");
+        x.addColumn("NAMA");
+        x.addColumn("KODE LAB");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from laboran where id_laboran like '%"+kolom+"%' or "+
+                    "nama_laboran like '%"+kolom+"%' or kode_lab like '%"+kolom+"%'";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3)});
+            }
+            tbllaboran.setModel(x);
+        }catch(SQLException ex){
+            TFPESAN.setText("gagal cari");
+            ex.printStackTrace();
+        }
+    }
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         DefaultTableModel model = (DefaultTableModel) tbllaboran.getModel();
         try(
@@ -312,6 +370,12 @@ private void tampilkandata(){
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 
+    private void BTNCARIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCARIActionPerformed
+        // TODO add your handling code here:
+        String kolom=TFCARI.getText();
+        tampilkancari(kolom);
+    }//GEN-LAST:event_BTNCARIActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -348,6 +412,9 @@ private void tampilkandata(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNCARI;
+    private javax.swing.JTextField TFCARI;
+    private javax.swing.JTextField TFPESAN;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnupdate;
@@ -355,6 +422,7 @@ private void tampilkandata(){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbllaboran;

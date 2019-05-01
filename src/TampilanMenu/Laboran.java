@@ -141,6 +141,12 @@ private void tampilkandata(){
 
         jLabel2.setText("CARI JADWAL");
 
+        TFCARI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFCARIActionPerformed(evt);
+            }
+        });
+
         BTNCARI.setText("CARI");
         BTNCARI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,6 +309,10 @@ private void tampilkandata(){
         x.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnubahActionPerformed
+
+    private void TFCARIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCARIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFCARIActionPerformed
 
     /**
      * @param args the command line arguments
