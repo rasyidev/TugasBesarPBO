@@ -207,7 +207,7 @@ public class formLab extends javax.swing.JFrame {
     }//GEN-LAST:event_tfkapasitasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        menuJadwal x = new menuJadwal();
+        Lab x = new Lab();
         x.setVisible(true); //menampilkan form yang dituju
         this.setVisible(false); //menghilangkan form saat ini
     }//GEN-LAST:event_jButton2ActionPerformed

@@ -251,7 +251,9 @@ private void tampilkandata(){
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
-        // TODO add your handling code here:
+            Asprak x = new Asprak();
+            x.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_btncancelActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
