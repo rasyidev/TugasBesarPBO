@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2019 at 04:44 PM
+-- Generation Time: May 02, 2019 at 07:18 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `labkom_itera`
+-- Database: `labkom_itera1`
 --
 
 -- --------------------------------------------------------
@@ -31,16 +31,35 @@ SET time_zone = "+00:00";
 CREATE TABLE `asprak_atau_dosen` (
   `NIMorNIK` char(16) NOT NULL,
   `nama` varchar(25) NOT NULL,
-  `id_jadwal` int(11) NOT NULL
+  `id_jadwal` int(11) NOT NULL,
+  `keterangan` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `asprak_atau_dosen`
 --
 
-INSERT INTO `asprak_atau_dosen` (`NIMorNIK`, `nama`, `id_jadwal`) VALUES
-('14116100', 'fadillah', 1),
-('16117010', 'arwin', 2);
+INSERT INTO `asprak_atau_dosen` (`NIMorNIK`, `nama`, `id_jadwal`, `keterangan`) VALUES
+('14116100', 'fadillah', 1, ''),
+('16117015', 'arwin', 2, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dosen`
+--
+
+CREATE TABLE `dosen` (
+  `NIK` int(16) NOT NULL,
+  `nama` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`NIK`, `nama`) VALUES
+(2147483647, 'Hartanto Tantriawan');
 
 -- --------------------------------------------------------
 
@@ -122,6 +141,26 @@ INSERT INTO `pinjam_lab` (`tanggal_pinjam`, `jam`, `kode_lab`, `id_peminjam`, `n
 ('2019-04-18', '07:00:00', 'C2', 2, 'habib'),
 ('2019-04-18', '07:00:00', 'C1', 3, 'robby');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `nama` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`nama`, `username`, `password`) VALUES
+('aldi', 'aldi15', '9807a219c0419752e0d7257dcfc88d4d'),
+('habib', 'habib15', 'e31b4962073bca0227bb59ff54cef67c');
+
 --
 -- Indexes for dumped tables
 --
@@ -132,6 +171,12 @@ INSERT INTO `pinjam_lab` (`tanggal_pinjam`, `jam`, `kode_lab`, `id_peminjam`, `n
 ALTER TABLE `asprak_atau_dosen`
   ADD PRIMARY KEY (`NIMorNIK`),
   ADD KEY `id_jadwal` (`id_jadwal`);
+
+--
+-- Indexes for table `dosen`
+--
+ALTER TABLE `dosen`
+  ADD PRIMARY KEY (`NIK`);
 
 --
 -- Indexes for table `jadwal`
@@ -159,6 +204,12 @@ ALTER TABLE `laboran`
 ALTER TABLE `pinjam_lab`
   ADD PRIMARY KEY (`id_peminjam`),
   ADD KEY `kode_lab` (`kode_lab`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Constraints for dumped tables
