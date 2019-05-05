@@ -250,7 +250,7 @@ public class Jadwal extends javax.swing.JFrame {
             tampilkandata("prodi");
         }
         else if (cmburut.getSelectedItem()=="mata kuliah"){
-            tampilkandata("matkul");
+            tampilkandata("mata_kuliah");
         }
         else if (cmburut.getSelectedItem()=="hari"){
             tampilkandata("hari");

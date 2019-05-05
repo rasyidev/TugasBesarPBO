@@ -183,8 +183,8 @@
           <StringArray count="4">
             <StringItem index="0" value="NIM ATAU NIK"/>
             <StringItem index="1" value="NAMA"/>
-            <StringItem index="2" value="ID JADAWAL"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="2" value="ID JADWAL"/>
+            <StringItem index="3" value=""/>
           </StringArray>
         </Property>
       </Properties>

@@ -99,6 +99,11 @@ public class MenuUtama extends javax.swing.JFrame {
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, -1, -1));
 
         jButton6.setText("KELUAR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 438, 109, 29));
 
         pack();
@@ -131,6 +136,12 @@ public class MenuUtama extends javax.swing.JFrame {
          x.setVisible(true); //menampilkan form yang dituju
         this.setVisible(false); //menghilangkan form saat ini
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Masuk x = new Masuk();
+         x.setVisible(true); //menampilkan form yang dituju
+        this.setVisible(false); //menghilangkan form saat ini
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

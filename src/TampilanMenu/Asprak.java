@@ -177,7 +177,7 @@ private void tampilkandata(){
 
         jLabel4.setText("BERDASARKAN");
 
-        cmburut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NIM ATAU NIK", "NAMA", "ID JADAWAL", " " }));
+        cmburut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NIM ATAU NIK", "NAMA", "ID JADWAL", "" }));
         cmburut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmburutActionPerformed(evt);

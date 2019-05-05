@@ -24,116 +24,86 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="416" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="TFCARI" min="-2" pref="250" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="BTNCARI" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="TFPESAN" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="386" pref="386" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace pref="322" max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="386" pref="386" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnadd" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btndelete" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnadd" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btndelete" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tfid" min="-2" pref="244" max="-2" attributes="0"/>
-                              <Component id="tfnama" min="-2" pref="244" max="-2" attributes="0"/>
-                              <Component id="tfkode" min="-2" pref="244" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="173" pref="173" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                      </Group>
+                      <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tfid" min="-2" pref="244" max="-2" attributes="0"/>
+                          <Component id="tfnama" min="-2" pref="244" max="-2" attributes="0"/>
+                          <Component id="tfkode" min="-2" pref="244" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="173" pref="173" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="571" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                          <Component id="tfpesan" min="-2" pref="340" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="571" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                      <Component id="tfpesan" min="-2" pref="340" max="-2" attributes="0"/>
+                  </Group>
               </Group>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="354" max="32767" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="TFCARI" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BTNCARI" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TFPESAN" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jLabel5" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="btnadd" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                          <Component id="btndelete" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="tfid" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Component id="tfnama" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Component id="tfkode" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jScrollPane1" min="-2" pref="278" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel5" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="btnadd" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                      <Component id="btndelete" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
-                  <Component id="tfpesan" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="tfid" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Component id="tfnama" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Component id="tfkode" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" min="-2" pref="278" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
+              <Component id="tfpesan" min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -230,23 +200,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="MODIFIKASI DATA LABORAN"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cari"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="TFCARI">
-    </Component>
-    <Component class="javax.swing.JTextField" name="TFPESAN">
-    </Component>
-    <Component class="javax.swing.JButton" name="BTNCARI">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CARI"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNCARIActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

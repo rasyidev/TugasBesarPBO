@@ -73,10 +73,6 @@ private void tampilkandata(){
         btndelete = new javax.swing.JButton();
         tfpesan = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        TFCARI = new javax.swing.JTextField();
-        TFPESAN = new javax.swing.JTextField();
-        BTNCARI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -158,107 +154,75 @@ private void tampilkandata(){
 
         jLabel5.setText("MODIFIKASI DATA LABORAN");
 
-        jLabel4.setText("Cari");
-
-        BTNCARI.setText("CARI");
-        BTNCARI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNCARIActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(416, 416, 416)
+                .addGap(0, 5, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(TFCARI, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(BTNCARI)
-                        .addGap(18, 18, 18)
-                        .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(322, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(386, 386, 386)
-                            .addComponent(jLabel5))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnadd)
-                                        .addComponent(btndelete))))
-                            .addGap(27, 27, 27)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfid, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfnama, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfkode, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(173, 173, 173)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnupdate)
-                                        .addComponent(jButton2))))
-                            .addGap(65, 65, 65)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(386, 386, 386)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnadd)
+                                    .addComponent(btndelete))))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfid, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfnama, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfkode, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(173, 173, 173)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnupdate)
+                                    .addComponent(jButton2))))
+                        .addGap(65, 65, 65)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(354, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TFCARI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTNCARI)
-                    .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addComponent(jLabel1)
-                            .addGap(27, 27, 27)
-                            .addComponent(jLabel3)
-                            .addGap(24, 24, 24)
-                            .addComponent(jLabel2)
-                            .addGap(92, 92, 92)
-                            .addComponent(btnadd)
-                            .addGap(44, 44, 44)
-                            .addComponent(btndelete))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(tfid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(tfnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(tfkode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(92, 92, 92)
-                            .addComponent(btnupdate)
-                            .addGap(44, 44, 44)
-                            .addComponent(jButton2))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(45, 45, 45)
-                    .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel1)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel3)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)
+                        .addGap(92, 92, 92)
+                        .addComponent(btnadd)
+                        .addGap(44, 44, 44)
+                        .addComponent(btndelete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfnama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfkode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92)
+                        .addComponent(btnupdate)
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton2))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(tfpesan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,33 +253,6 @@ private void tampilkandata(){
         tfkode.setText(model.getValueAt(tbllaboran.getSelectedRow(), 2).toString());
         
     }//GEN-LAST:event_tbllaboranMouseClicked
-private void tampilkancari(String kolom){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("NID LABORAN");
-        x.addColumn("NAMA");
-        x.addColumn("KODE LAB");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from laboran where id_laboran like '%"+kolom+"%' or "+
-                    "nama_laboran like '%"+kolom+"%' or kode_lab like '%"+kolom+"%'";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3)});
-            }
-            tbllaboran.setModel(x);
-        }catch(SQLException ex){
-            TFPESAN.setText("gagal cari");
-            ex.printStackTrace();
-        }
-    }
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         DefaultTableModel model = (DefaultTableModel) tbllaboran.getModel();
         try(
@@ -370,12 +307,6 @@ private void tampilkancari(String kolom){
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 
-    private void BTNCARIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCARIActionPerformed
-        // TODO add your handling code here:
-        String kolom=TFCARI.getText();
-        tampilkancari(kolom);
-    }//GEN-LAST:event_BTNCARIActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -412,9 +343,6 @@ private void tampilkancari(String kolom){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTNCARI;
-    private javax.swing.JTextField TFCARI;
-    private javax.swing.JTextField TFPESAN;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnupdate;
@@ -422,7 +350,6 @@ private void tampilkancari(String kolom){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbllaboran;

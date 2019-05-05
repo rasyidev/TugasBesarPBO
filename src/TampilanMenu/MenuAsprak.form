@@ -59,18 +59,7 @@
                   <Component id="tfpesan" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="106" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="BTNCARI" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="116" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="TFCARI" min="-2" pref="248" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -114,16 +103,7 @@
                       <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="TFCARI" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                  <Component id="BTNCARI" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -215,34 +195,5 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="TFCARI">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TFCARIActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cari"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextPane" name="TFPESAN">
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JButton" name="BTNCARI">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cari"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNCARIActionPerformed"/>
-      </Events>
-    </Component>
   </SubComponents>
 </Form>

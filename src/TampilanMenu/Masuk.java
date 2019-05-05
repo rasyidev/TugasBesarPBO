@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package TampilanMenu;
-import ToDb.DBAsprakDosen;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,58 @@ public class Masuk extends javax.swing.JFrame {
     public Masuk() {
         initComponents();
     }
+
+    public String password(){
+        String password = null;    
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String select = "select password from user where username='"+username.getText()+"'";
+           
+            ResultSet rset=stmt.executeQuery(select);
+            int i=0;
+            while(rset.next()){
+                password=rset.getString("password");
+                i++;
+            }
+            if(i==0){
+                JOptionPane.showMessageDialog(null,"username tidak ada");
+            }
+            return password;
+        }catch(SQLException ex){
+            
+        }
+        return "";
+    }
+    public String md5(){
+        String pw = null;
+            try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String select = "select md5('"+pass.getText()+"') as pw";
+            ResultSet rset=stmt.executeQuery(select);
+            //System.out.println("the record selected are:");
+            
+            while(rset.next()){
+                pw=rset.getString("pw");
+            }
+            return pw;
+        }catch(SQLException ex){
+            
+        }
+        return "";
+    }
+
+        
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,20 +93,21 @@ public class Masuk extends javax.swing.JFrame {
         CMBJENIS = new javax.swing.JComboBox();
         BTNKELUAR = new javax.swing.JButton();
         BTNLOGIN1 = new javax.swing.JButton();
-        TFPESAN = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
-        password = new javax.swing.JPasswordField();
+        pass = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 153));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setFocusableWindowState(false);
 
         jLabel1.setText("DAFTAR ?");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
             }
         });
 
@@ -86,43 +140,54 @@ public class Masuk extends javax.swing.JFrame {
 
         jLabel5.setText("JENIS USER");
 
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(CMBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(password)))
-                                .addComponent(TFPESAN)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(BTNLOGIN1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(BTNKELUAR))))
+                .addGap(174, 174, 174)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(209, 209, 209)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BTNLOGIN1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BTNKELUAR))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(CMBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -136,7 +201,7 @@ public class Masuk extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CMBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,9 +210,7 @@ public class Masuk extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNKELUAR)
                     .addComponent(BTNLOGIN1))
-                .addGap(18, 18, 18)
-                .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -156,42 +219,41 @@ public class Masuk extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTNKELUARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNKELUARActionPerformed
-        // TODO add your handling code here:
+      System.exit(0);
     }//GEN-LAST:event_BTNKELUARActionPerformed
 
     private void BTNLOGIN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLOGIN1ActionPerformed
-        try{
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/labkom_itera1", "root", "");
-            String sql = "select * from akun where username=? and password?;";
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, username.getText());
-            pst.setString(2, password.getText());
-            
-            ResultSet rs = pst.executeQuery();
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Daftar akun Berhasil!");
-            }{
-                JOptionPane.showMessageDialog(null, "Gagal Mendaftarkan Akun");
-            }
             MenuUtama x = new MenuUtama();
-        x.setVisible(true); //menampilkan form yang dituju
-        this.setVisible(false); 
-            
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Gagal Mendaftar, "+ ex);
-        }
-        
+            if(password().equals(md5())){
+                x.setVisible(true);
+                this.setVisible(false);
+            }else{
+              JOptionPane.showMessageDialog(null, "Password salah ");
+            }
+
     }//GEN-LAST:event_BTNLOGIN1ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-         new Daftar().setVisible(true);
-         this.setVisible(false);
+       Daftar x = new Daftar();
+       x.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void CMBJENISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBJENISActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CMBJENISActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseEntered
 
     /**
      * @param args the command line arguments
@@ -232,13 +294,12 @@ public class Masuk extends javax.swing.JFrame {
     private javax.swing.JButton BTNKELUAR;
     private javax.swing.JButton BTNLOGIN1;
     private javax.swing.JComboBox CMBJENIS;
-    private javax.swing.JTextField TFPESAN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JTextField pass;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
