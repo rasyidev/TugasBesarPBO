@@ -9,6 +9,7 @@ package penjelasan;
  *
  * @author Mahasiswa
  */
+//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ public class Connect {
     
     public Connect(){
         
-        MysqlDataSource mds = new MysqlDataSource();
+       MysqlDataSource mds = new MysqlDataSource();
         mds.setUser("root");
         mds.setPassword("");
         mds.setDatabaseName("labkom_itera1");
