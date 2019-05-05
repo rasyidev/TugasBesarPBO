@@ -141,6 +141,7 @@ public class Jadwal extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tbljadwal.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tbljadwal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -164,9 +165,11 @@ public class Jadwal extends javax.swing.JFrame {
         jLabel1.setText("JADWAL LAB KOMPUTER ITERA");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, -1, 42));
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("CARI JADWAL");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 95, -1, 27));
 
+        TFCARI.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         TFCARI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TFCARIActionPerformed(evt);
@@ -174,6 +177,7 @@ public class Jadwal extends javax.swing.JFrame {
         });
         getContentPane().add(TFCARI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 128, 243, -1));
 
+        BTNCARI.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         BTNCARI.setText("CARI");
         BTNCARI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +186,7 @@ public class Jadwal extends javax.swing.JFrame {
         });
         getContentPane().add(BTNCARI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 166, -1, -1));
 
+        BTNBATAL.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         BTNBATAL.setText("BATAL");
         BTNBATAL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,14 +194,19 @@ public class Jadwal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BTNBATAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 166, -1, -1));
+
+        TFPESAN.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(TFPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 207, 243, 51));
 
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel3.setText("URUTKAN JADWAL");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 95, -1, 27));
 
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel4.setText("BERDASARKAN");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 129, -1, 20));
 
+        cmburut.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         cmburut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "id jadwal", "program studi", "mata kuliah", "hari", "jam", "kode lab" }));
         cmburut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +215,7 @@ public class Jadwal extends javax.swing.JFrame {
         });
         getContentPane().add(cmburut, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 190, -1));
 
+        btnubah.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnubah.setText("UBAH DATA");
         btnubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +224,7 @@ public class Jadwal extends javax.swing.JFrame {
         });
         getContentPane().add(btnubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(791, 128, -1, -1));
 
+        btnkembali.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnkembali.setText("KEMBALI");
         btnkembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -77,20 +77,32 @@ private void tampilkandata(){
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("MODIFIKASI DATA ASPRAK ATAU DOSEN");
 
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel4.setText("NIM atau NIP");
 
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel6.setText("ID JADWAL");
 
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel7.setText("NAMA");
 
+        tfnim.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+
+        tfpesan.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfpesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfpesanActionPerformed(evt);
             }
         });
 
+        tfnama.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+
+        tfidjadwal.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+
+        btnupdate.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnupdate.setText("UPDATE");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +110,7 @@ private void tampilkandata(){
             }
         });
 
+        btndelete.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btndelete.setText("DELETE");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +118,7 @@ private void tampilkandata(){
             }
         });
 
+        btncancel.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btncancel.setText("CANCEL");
         btncancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +126,7 @@ private void tampilkandata(){
             }
         });
 
+        btnadd.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnadd.setText("ADD");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +134,7 @@ private void tampilkandata(){
             }
         });
 
+        tblasprak.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tblasprak.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

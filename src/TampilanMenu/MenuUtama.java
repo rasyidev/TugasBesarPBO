@@ -39,11 +39,12 @@ public class MenuUtama extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel1.setText("SISTEM INFORMASI LAB KOMPUTER ITERA");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 0, 290, 47));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\Actions-view-calendar-timeline-icon.png")); // NOI18N
+        jButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton1.setText("JADWAL");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -54,7 +55,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 153, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\Computer-icon.png")); // NOI18N
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton2.setText("DATA LAB");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -65,7 +66,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\Teachers-icon.png")); // NOI18N
+        jButton3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton3.setText("DATA ASPRAK");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -76,7 +77,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\customer-service-man-icon.png")); // NOI18N
+        jButton4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton4.setText("DATA LABORAN");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -87,7 +88,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, -1));
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\Teachers-icon.png")); // NOI18N
+        jButton5.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton5.setText("PINJAM LAB");
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -98,6 +99,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, -1, -1));
 
+        jButton6.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton6.setText("KELUAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

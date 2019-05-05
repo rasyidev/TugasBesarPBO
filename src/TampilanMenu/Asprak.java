@@ -131,6 +131,7 @@ private void tampilkandata(){
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        tblasprak.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tblasprak.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -149,10 +150,13 @@ private void tampilkandata(){
         });
         jScrollPane1.setViewportView(tblasprak);
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel1.setText("DATA ASPRAK LAB KOMPUTER ITERA");
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("CARI JADWAL");
 
+        BTNCARI.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         BTNCARI.setText("CARI");
         BTNCARI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +164,7 @@ private void tampilkandata(){
             }
         });
 
+        BTNBATAL.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         BTNBATAL.setText("BATAL");
         BTNBATAL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,10 +178,13 @@ private void tampilkandata(){
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel3.setText("URUTKAN JADWAL");
 
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel4.setText("BERDASARKAN");
 
+        cmburut.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         cmburut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NIM ATAU NIK", "NAMA", "ID JADWAL", "" }));
         cmburut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +192,7 @@ private void tampilkandata(){
             }
         });
 
+        btnubah.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnubah.setText("UBAH DATA");
         btnubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,6 +200,7 @@ private void tampilkandata(){
             }
         });
 
+        btnkembali.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnkembali.setText("KEMBALI");
         btnkembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

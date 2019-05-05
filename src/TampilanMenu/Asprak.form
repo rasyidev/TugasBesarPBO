@@ -123,6 +123,9 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tblasprak">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comic Sans MS" size="11" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="0">
                 <Column editable="false" title="NIM atau NIK" type="java.lang.Object"/>
@@ -136,11 +139,17 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="DATA ASPRAK LAB KOMPUTER ITERA"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="CARI JADWAL"/>
       </Properties>
     </Component>
@@ -148,6 +157,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BTNCARI">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="CARI"/>
       </Properties>
       <Events>
@@ -156,6 +168,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BTNBATAL">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BATAL"/>
       </Properties>
       <Events>
@@ -169,16 +184,25 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="URUTKAN JADWAL"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BERDASARKAN"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmburut">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="NIM ATAU NIK"/>
@@ -194,6 +218,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnubah">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="UBAH DATA"/>
       </Properties>
       <Events>
@@ -202,6 +229,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnkembali">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="KEMBALI"/>
       </Properties>
       <Events>

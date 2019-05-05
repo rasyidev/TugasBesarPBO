@@ -97,18 +97,23 @@ public class formLab extends javax.swing.JFrame {
         setName("LABKOM ITERA"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel1.setText("KODE LAB");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 73, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("RUANG LAB");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 152, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel3.setText("NAMA LAB");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 114, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel4.setText("KAPASITAS");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 187, -1, -1));
 
+        tfkodelab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfkodelab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfkodelabActionPerformed(evt);
@@ -116,6 +121,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 70, 244, -1));
 
+        tfnamalab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfnamalab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfnamalabActionPerformed(evt);
@@ -123,6 +129,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(tfnamalab, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 108, 244, -1));
 
+        tfruang.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfruang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfruangActionPerformed(evt);
@@ -130,6 +137,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(tfruang, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 146, 244, -1));
 
+        tfkapasitas.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfkapasitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfkapasitasActionPerformed(evt);
@@ -137,6 +145,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(tfkapasitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 184, 244, -1));
 
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton2.setText("CANCEL");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +154,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 325, -1, -1));
 
+        tbllab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tbllab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -162,6 +172,7 @@ public class formLab extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 70, 571, 278));
 
+        btnupdate.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnupdate.setText("UPDATE");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +181,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 258, -1, -1));
 
+        btnadd.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnadd.setText("ADD");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +190,7 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 258, -1, -1));
 
+        btndelete.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btndelete.setText("DELETE");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,6 +200,7 @@ public class formLab extends javax.swing.JFrame {
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 325, -1, -1));
         getContentPane().add(tfpesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 393, 340, 80));
 
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel5.setText("MODIFIKASI DATA LAB");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 11, -1, 41));
         setJMenuBar(jMenuBar1);

@@ -40,6 +40,9 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tbljadwal">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comic Sans MS" size="11" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="0">
                 <Column editable="false" title="id jadwal" type="java.lang.Object"/>
@@ -66,6 +69,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="CARI JADWAL"/>
       </Properties>
       <Constraints>
@@ -75,6 +81,11 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="TFCARI">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TFCARIActionPerformed"/>
       </Events>
@@ -86,6 +97,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BTNCARI">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="CARI"/>
       </Properties>
       <Events>
@@ -99,6 +113,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BTNBATAL">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BATAL"/>
       </Properties>
       <Events>
@@ -111,6 +128,11 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="TFPESAN">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="40" y="207" width="243" height="51"/>
@@ -119,6 +141,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="URUTKAN JADWAL"/>
       </Properties>
       <Constraints>
@@ -129,6 +154,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="BERDASARKAN"/>
       </Properties>
       <Constraints>
@@ -139,6 +167,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="cmburut">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
             <StringItem index="0" value="id jadwal"/>
@@ -161,6 +192,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnubah">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="UBAH DATA"/>
       </Properties>
       <Events>
@@ -174,6 +208,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnkembali">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="KEMBALI"/>
       </Properties>
       <Events>
