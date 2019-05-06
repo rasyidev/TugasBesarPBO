@@ -77,30 +77,37 @@ private void tampilkandata(){
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel1.setText("ID LABORAN");
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("KODE LAB");
 
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel3.setText("NAMA");
 
+        tfid.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfidActionPerformed(evt);
             }
         });
 
+        tfnama.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfnama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfnamaActionPerformed(evt);
             }
         });
 
+        tfkode.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfkode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfkodeActionPerformed(evt);
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jButton2.setText("CANCEL");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +115,7 @@ private void tampilkandata(){
             }
         });
 
+        tbllaboran.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tbllaboran.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -131,6 +139,7 @@ private void tampilkandata(){
         });
         jScrollPane1.setViewportView(tbllaboran);
 
+        btnupdate.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnupdate.setText("UPDATE");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +147,7 @@ private void tampilkandata(){
             }
         });
 
+        btnadd.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnadd.setText("ADD");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +155,7 @@ private void tampilkandata(){
             }
         });
 
+        btndelete.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btndelete.setText("DELETE");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +163,7 @@ private void tampilkandata(){
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel5.setText("MODIFIKASI DATA LABORAN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

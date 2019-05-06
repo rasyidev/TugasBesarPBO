@@ -134,6 +134,7 @@ private void tampilkandata(){
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        btnkembali.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnkembali.setText("KEMBALI");
         btnkembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,8 +144,12 @@ private void tampilkandata(){
 
         jLabel1.setText("DATA LAB KOMPUTER ITERA");
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("CARI JADWAL");
 
+        TFCARI.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+
+        BTNCARI.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         BTNCARI.setText("CARI");
         BTNCARI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +157,7 @@ private void tampilkandata(){
             }
         });
 
+        BTNBATAL.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         BTNBATAL.setText("BATAL");
         BTNBATAL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,10 +165,15 @@ private void tampilkandata(){
             }
         });
 
+        TFPESAN.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel3.setText("URUTKAN JADWAL");
 
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel4.setText("BERDASARKAN");
 
+        cmburut.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         cmburut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "KODE LAB", "NAMA LAB", "RUANG LAB", "KAPASITAS", " " }));
         cmburut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +181,7 @@ private void tampilkandata(){
             }
         });
 
+        tbllab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tbllab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -188,6 +200,7 @@ private void tampilkandata(){
         });
         jScrollPane1.setViewportView(tbllab);
 
+        btnubah.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnubah.setText("UBAH DATA");
         btnubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +212,10 @@ private void tampilkandata(){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1017, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(796, Short.MAX_VALUE)
+                .addComponent(btnkembali, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -222,9 +238,7 @@ private void tampilkandata(){
                             .addGap(40, 40, 40)
                             .addComponent(BTNCARI)
                             .addGap(123, 123, 123)
-                            .addComponent(BTNBATAL)
-                            .addGap(508, 508, 508)
-                            .addComponent(btnkembali, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BTNBATAL))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -237,7 +251,10 @@ private void tampilkandata(){
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(174, 174, 174)
+                .addComponent(btnkembali)
+                .addContainerGap(270, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -259,11 +276,8 @@ private void tampilkandata(){
                     .addGap(15, 15, 15)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(BTNCARI)
-                        .addComponent(BTNBATAL)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addComponent(btnkembali)))
-                    .addGap(15, 15, 15)
+                        .addComponent(BTNBATAL))
+                    .addGap(18, 18, 18)
                     .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(68, 68, 68)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)

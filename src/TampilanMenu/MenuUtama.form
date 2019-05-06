@@ -28,6 +28,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="SISTEM INFORMASI LAB KOMPUTER ITERA"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
@@ -39,8 +42,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\USER\Downloads\Actions-view-calendar-timeline-icon.png"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="JADWAL"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -57,8 +60,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\USER\Downloads\Computer-icon.png"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DATA LAB"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -75,8 +78,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\USER\Downloads\Teachers-icon.png"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DATA ASPRAK"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -93,8 +96,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\USER\Downloads\customer-service-man-icon.png"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DATA LABORAN"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -111,8 +114,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\USER\Downloads\Teachers-icon.png"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="PINJAM LAB"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -129,6 +132,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="KELUAR"/>
       </Properties>
       <Events>

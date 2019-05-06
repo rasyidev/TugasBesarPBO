@@ -122,34 +122,48 @@ public class menuJadwal extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 1001, 151));
 
+        jLidjadwal.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLidjadwal.setText("id jadwal");
-        getContentPane().add(jLidjadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 69, 24));
+        getContentPane().add(jLidjadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 24));
 
+        jlmatkul.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jlmatkul.setText("mata kuliah");
         getContentPane().add(jlmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 112, 69, 24));
 
+        jlprodi.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jlprodi.setText("program studi");
         getContentPane().add(jlprodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 75, 103, 24));
 
+        jljam.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jljam.setText("jam");
         getContentPane().add(jljam, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 177, 69, 24));
 
+        jlhari.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jlhari.setText("hari");
         getContentPane().add(jlhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 147, 69, 24));
 
+        tfid.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfidActionPerformed(evt);
             }
         });
         getContentPane().add(tfid, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 41, 349, 22));
+
+        tfprodi.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(tfprodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 75, 349, 26));
+
+        tfmatkul.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(tfmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 114, 349, -1));
+
+        tfjam.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(tfjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 179, 349, -1));
 
+        cmbhari.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         cmbhari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" }));
         getContentPane().add(cmbhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 149, 349, -1));
 
+        btnadd.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnadd.setText("add");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +172,7 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 242, -1, -1));
 
+        btndelete.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btndelete.setText("delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +181,7 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 242, -1, -1));
 
+        btnupdate.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btnupdate.setText("update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +190,7 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 242, -1, -1));
 
+        btncancel.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btncancel.setText("cancel");
         btncancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +199,7 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 242, 90, -1));
 
+        tfpesan.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         tfpesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfpesanActionPerformed(evt);
@@ -189,10 +207,14 @@ public class menuJadwal extends javax.swing.JFrame {
         });
         getContentPane().add(tfpesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 278, 518, 64));
 
+        jlkodealab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jlkodealab.setText("kode lab");
         getContentPane().add(jlkodealab, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 207, 69, 24));
+
+        tfkodelab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 209, 349, -1));
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel1.setText("MIDIFIKASI DATA JADWAL");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 0, 160, 34));
 
