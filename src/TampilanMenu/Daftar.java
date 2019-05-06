@@ -171,10 +171,6 @@ public class Daftar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisActionPerformed
-
-    }//GEN-LAST:event_jenisActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try( Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/labkom_itera1", "root", "");
@@ -207,6 +203,10 @@ public class Daftar extends javax.swing.JFrame {
            x.setVisible(true);
            this.setVisible(false);
     }//GEN-LAST:event_kembaliActionPerformed
+
+    private void jenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisActionPerformed
+
+    }//GEN-LAST:event_jenisActionPerformed
 
     /**
      * @param args the command line arguments
