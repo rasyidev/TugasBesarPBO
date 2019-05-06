@@ -162,6 +162,7 @@ public class Jadwal extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 326, 1013, 139));
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel1.setText("JADWAL LAB KOMPUTER ITERA");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, -1, 42));
 

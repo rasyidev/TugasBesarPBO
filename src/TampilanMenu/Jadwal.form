@@ -59,6 +59,9 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="JADWAL LAB KOMPUTER ITERA"/>
       </Properties>
       <Constraints>

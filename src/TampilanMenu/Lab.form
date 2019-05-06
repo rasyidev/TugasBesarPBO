@@ -25,7 +25,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="796" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+              <Component id="BTNBATAL" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="512" max="32767" attributes="0"/>
               <Component id="btnkembali" min="-2" pref="89" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
           </Group>
@@ -52,8 +54,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="BTNCARI" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="123" pref="123" max="-2" attributes="0"/>
-                          <Component id="BTNBATAL" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
@@ -73,9 +73,17 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-              <Component id="btnkembali" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="btnkembali" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                      <Component id="BTNBATAL" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace pref="270" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -101,10 +109,7 @@
                       <Component id="btnubah" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="BTNCARI" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="BTNBATAL" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="BTNCARI" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="TFPESAN" min="-2" pref="51" max="-2" attributes="0"/>
                   <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
@@ -129,6 +134,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Comic Sans MS" size="11" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="DATA LAB KOMPUTER ITERA"/>
       </Properties>
     </Component>

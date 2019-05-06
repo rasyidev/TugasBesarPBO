@@ -311,11 +311,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="MIDIFIKASI DATA JADWAL"/>
+        <Property name="text" type="java.lang.String" value="MODIFIKASI DATA JADWAL"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="445" y="0" width="160" height="34"/>
+          <AbsoluteConstraints x="435" y="0" width="170" height="34"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -215,8 +215,8 @@ public class menuJadwal extends javax.swing.JFrame {
         getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 209, 349, -1));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
-        jLabel1.setText("MIDIFIKASI DATA JADWAL");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 0, 160, 34));
+        jLabel1.setText("MODIFIKASI DATA JADWAL");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 0, 170, 34));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
