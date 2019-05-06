@@ -45,7 +45,7 @@ public class Masuk extends javax.swing.JFrame {
                 i++;
             }
             if(i==0){
-                JOptionPane.showMessageDialog(null,"username tidak ada");
+                JOptionPane.showMessageDialog(null,"username tidak");
             }
             return password;
         }catch(SQLException ex){
@@ -205,8 +205,8 @@ public class Masuk extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(username)
-                    .addComponent(un, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(un, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(username))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
