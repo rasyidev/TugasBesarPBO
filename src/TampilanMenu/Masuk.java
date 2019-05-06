@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,10 +37,11 @@ public class Masuk extends javax.swing.JFrame {
                 Statement stmt = conn.createStatement();
         ){
             String select = "select password from user where username='"+username.getText()+"'";
-           
+           HashSet<String> x = new HashSet();
             ResultSet rset=stmt.executeQuery(select);
             int i=0;
             while(rset.next()){
+                //String username=rset.getString("username");
                 password=rset.getString("password");
                 i++;
             }
@@ -90,10 +93,8 @@ public class Masuk extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        CMBJENIS = new javax.swing.JComboBox();
         BTNKELUAR = new javax.swing.JButton();
         BTNLOGIN1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         pass = new javax.swing.JTextField();
 
@@ -117,13 +118,6 @@ public class Masuk extends javax.swing.JFrame {
 
         jLabel4.setText("USER NAME");
 
-        CMBJENIS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASISTEN PRAKTIKUM", "DOSEN", "LABORAN" }));
-        CMBJENIS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CMBJENISActionPerformed(evt);
-            }
-        });
-
         BTNKELUAR.setText("KELUAR");
         BTNKELUAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +131,6 @@ public class Masuk extends javax.swing.JFrame {
                 BTNLOGIN1ActionPerformed(evt);
             }
         });
-
-        jLabel5.setText("JENIS USER");
 
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,13 +164,9 @@ public class Masuk extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(CMBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -202,11 +190,7 @@ public class Masuk extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CMBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNKELUAR)
                     .addComponent(BTNLOGIN1))
@@ -238,10 +222,6 @@ public class Masuk extends javax.swing.JFrame {
        x.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void CMBJENISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBJENISActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CMBJENISActionPerformed
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
@@ -293,12 +273,10 @@ public class Masuk extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNKELUAR;
     private javax.swing.JButton BTNLOGIN1;
-    private javax.swing.JComboBox CMBJENIS;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField pass;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
