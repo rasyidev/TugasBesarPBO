@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,7 +37,7 @@ public class Daftar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jenis = new javax.swing.JComboBox<String>();
-        jLabel4 = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         NIM = new javax.swing.JTextField();
@@ -69,8 +70,8 @@ public class Daftar extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
-        jLabel4.setText("jenis user");
+        status.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+        status.setText("jenis user");
 
         username.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
 
@@ -118,7 +119,7 @@ public class Daftar extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(status))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jenis, 0, 228, Short.MAX_VALUE)
@@ -160,7 +161,7 @@ public class Daftar extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(status))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -171,28 +172,70 @@ public class Daftar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public String cekanggota(){
+        HashMap<String,String> x = new HashMap();
+        String kondisi=null;
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            if(jenis.getSelectedItem()=="DOSEN ATAU ASPRAK"){
+                String strSelect = "select * from asprak_atau_dosen";
+                ResultSet rset=stmt.executeQuery(strSelect);
+                while(rset.next()){
+                    x.put(rset.getString("NIMorNIK"),rset.getString("nama"));
+                }
+                System.out.println(x);
+                System.out.println(x.keySet().contains(NIM.getText()));
+                System.out.println(x.get(NIM.getText()));
+                if(x.keySet().contains(NIM.getText())==true && x.get(rset.getString("NIMorNIM"))==nama.getText()){
+                kondisi="benar";
+                }
+            }else if(jenis.getSelectedItem()=="LABORAN"){
+                String strSelect = "select * from laboran";
+                ResultSet rset=stmt.executeQuery(strSelect);
+                while(rset.next()){
+                x.put(rset.getString("id_laboran"),rset.getString("nama_laboran"));
+                }
+                
+                if(x.keySet().contains(NIM.getText())==true && x.get(rset.getString("id_laboran"))==nama.getText()){
+                kondisi="benar";
+                }
+            }
+            return kondisi;
+            
+        }catch(SQLException ex){
+        }
+        return "";
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try( Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/labkom_itera1", "root", "");
             Statement stmt = conn.createStatement();
                 ){
-           if(password.getText().equals(repassword.getText())){
-                String insert = String.format("insert into user values('%s','%s',md5('%s'));", nama.getText(), username.getText(), password.getText());
-                if(nama.getText()!= "" && NIM.getText()!= "" && username.getText()!= "" && password.getText()!= "" 
-                   && repassword.getText()!= "" && jenis.getSelectedItem() != "JENIS USER" ){
-                stmt.executeUpdate(insert);
-                JOptionPane.showMessageDialog(null, "Succeed!");  
-                Masuk1 x = new Masuk1();
-                x.setVisible(true);
-                this.setVisible(false);
+            if(cekanggota()==""){   
+                if(password.getText().equals(repassword.getText())){
+                    String insert = String.format("insert into user values('%s','%s',md5('%s'));", nama.getText(), username.getText(), password.getText());
+                    if(nama.getText()!= "" && NIM.getText()!= "" && username.getText()!= "" && password.getText()!= "" 
+                       && repassword.getText()!= "" && jenis.getSelectedItem() != "JENIS USER" ){
+                    stmt.executeUpdate(insert);
+                    JOptionPane.showMessageDialog(null, "Succeed!");  
+                    Masuk1 x = new Masuk1();
+                    x.setVisible(true);
+                    this.setVisible(false);
+                    }else{
+                    JOptionPane.showMessageDialog(null,"isi semua kolom");
+                    }
                 }else{
-                JOptionPane.showMessageDialog(null,"isi semua kolom");
+                  JOptionPane.showMessageDialog(null, "Password doesn't match: " + password.getText() +" "+ repassword.getText());
                 }
            }else{
-             JOptionPane.showMessageDialog(null, "Password doesn't match: " + password.getText() +" "+ repassword.getText());
+                JOptionPane.showMessageDialog(null, "anda bukan asprak/dosen/laboran yang terdaftar di database");
            }
-           
-                    
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Error broo, username sudah ada");
         }
@@ -249,7 +292,6 @@ public class Daftar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JComboBox<String> jenis;
@@ -257,6 +299,7 @@ public class Daftar extends javax.swing.JFrame {
     private javax.swing.JTextField nama;
     private javax.swing.JPasswordField password;
     private javax.swing.JPasswordField repassword;
+    private javax.swing.JLabel status;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
