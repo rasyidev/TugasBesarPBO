@@ -140,7 +140,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Masuk x = new Masuk();
+        Masuk1 x = new Masuk1();
          x.setVisible(true); //menampilkan form yang dituju
         this.setVisible(false); //menghilangkan form saat ini
     }//GEN-LAST:event_jButton6ActionPerformed

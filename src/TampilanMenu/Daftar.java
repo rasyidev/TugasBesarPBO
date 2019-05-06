@@ -182,7 +182,7 @@ public class Daftar extends javax.swing.JFrame {
                    && repassword.getText()!= "" && jenis.getSelectedItem() != "JENIS USER" ){
                 stmt.executeUpdate(insert);
                 JOptionPane.showMessageDialog(null, "Succeed!");  
-                Masuk x = new Masuk();
+                Masuk1 x = new Masuk1();
                 x.setVisible(true);
                 this.setVisible(false);
                 }else{
@@ -199,7 +199,7 @@ public class Daftar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
-           Masuk x = new Masuk();
+           Masuk1 x = new Masuk1();
            x.setVisible(true);
            this.setVisible(false);
     }//GEN-LAST:event_kembaliActionPerformed
