@@ -5,99 +5,24 @@
  */
 package TampilanMenu;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
+import ToDb.DBLab;
 
-/**
- *
- * @author USER
- */
 public class Lab extends javax.swing.JFrame {
-private void tampilkandata(){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("KODE LAB");
-        x.addColumn("NAMA LAB");
-        x.addColumn("RUANG LAB");
-        x.addColumn("KAPASITAS");
+
+    private void tampilkandata(){
+        DBLab x = new DBLab(tbllab);
+        x.tampil();
         
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from lab";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString("kode_lab"),rset.getString("nama_lab"),rset.getString("nama_ruang"),rset.getString("kapasitas")});
-            }
-            tbllab.setModel(x);
-        }catch(SQLException ex){
-          
-        }
     }
-     private void tampilkandata(String kolom){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("KODE LAB");
-        x.addColumn("NAMA LAB");
-        x.addColumn("RUANG LAB");
-        x.addColumn("KAPASITAS");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from lab order by "+kolom+" asc";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
-            }
-            tbllab.setModel(x);
-        }catch(SQLException ex){
-            
-        }
+    
+    private void tampilkanurut(String kolom){
+        DBLab x = new DBLab(tbllab);
+        x.urut(kolom);
     }
      
      private void tampilkancari(String kolom){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("KODE LAB");
-        x.addColumn("NAMA LAB");
-        x.addColumn("RUANG LAB");
-        x.addColumn("KAPASITAS");
-        
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from lab where kode_lab like '%"+kolom+"%' or "+
-                    "nama_lab like '%"+kolom+"%' or nama_ruang like '%"+kolom+"%' or kapasitas like '%"+kolom+"%'";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
-            }
-            tbllab.setModel(x);
-        }catch(SQLException ex){
-            TFPESAN.setText("gagal cari");
-            ex.printStackTrace();
-        }
+        DBLab x = new DBLab(tbllab);
+        x.cari(kolom);
     }
 
     /**
@@ -123,7 +48,6 @@ private void tampilkandata(){
         TFCARI = new javax.swing.JTextField();
         BTNCARI = new javax.swing.JButton();
         BTNBATAL = new javax.swing.JButton();
-        TFPESAN = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cmburut = new javax.swing.JComboBox();
@@ -165,8 +89,6 @@ private void tampilkandata(){
                 BTNBATALActionPerformed(evt);
             }
         });
-
-        TFPESAN.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel3.setText("URUTKAN JADWAL");
@@ -240,9 +162,6 @@ private void tampilkandata(){
                         .addGroup(layout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addComponent(BTNCARI))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1013, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
@@ -281,9 +200,7 @@ private void tampilkandata(){
                         .addComponent(btnubah))
                     .addGap(15, 15, 15)
                     .addComponent(BTNCARI)
-                    .addGap(18, 18, 18)
-                    .addComponent(TFPESAN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(68, 68, 68)
+                    .addGap(137, 137, 137)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
@@ -310,16 +227,16 @@ private void tampilkandata(){
         String kolom;
 
         if (cmburut.getSelectedItem()=="KODE LAB"){
-            tampilkandata("kode_lab");
+            tampilkanurut("kode_lab");
         }
         else if (cmburut.getSelectedItem()=="NAMA LAB"){
-            tampilkandata("nama_lab");
+            tampilkanurut("nama_lab");
         }
         else if (cmburut.getSelectedItem()=="RUANG LAB"){
-            tampilkandata("nama_ruang");
+            tampilkanurut("nama_ruang");
         }
         else if (cmburut.getSelectedItem()=="KAPASITAS"){
-            tampilkandata("kapasitas");
+            tampilkanurut("kapasitas");
         }
     }//GEN-LAST:event_cmburutActionPerformed
 
@@ -368,7 +285,6 @@ private void tampilkandata(){
     private javax.swing.JButton BTNBATAL;
     private javax.swing.JButton BTNCARI;
     private javax.swing.JTextField TFCARI;
-    private javax.swing.JTextField TFPESAN;
     private javax.swing.JButton btnkembali;
     private javax.swing.JButton btnubah;
     private javax.swing.JComboBox cmburut;

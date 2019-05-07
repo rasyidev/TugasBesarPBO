@@ -172,9 +172,12 @@ public class Daftar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public String cekanggota(){
+    public boolean cekanggota(){
+        /* jika data nama dan nim tidak ada di database asprak_atau_dosen dan laboran
+        maka pendaftar tidak dapat mendaftar
+        */
         HashMap<String,String> x = new HashMap();
-        String kondisi=null;
+        String strSelect=null;
         try(
             Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/labkom_itera1",
@@ -183,41 +186,31 @@ public class Daftar extends javax.swing.JFrame {
                 Statement stmt = conn.createStatement();
         ){
             if(jenis.getSelectedItem()=="DOSEN ATAU ASPRAK"){
-                String strSelect = "select * from asprak_atau_dosen";
-                ResultSet rset=stmt.executeQuery(strSelect);
-                while(rset.next()){
-                    x.put(rset.getString("NIMorNIK"),rset.getString("nama"));
-                }
-                System.out.println(x);
-                System.out.println(x.keySet().contains(NIM.getText()));
-                System.out.println(x.get(NIM.getText()));
-                if(x.keySet().contains(NIM.getText())==true && x.get(rset.getString("NIMorNIM"))==nama.getText()){
-                kondisi="benar";
-                }
+                strSelect = "select * from asprak_atau_dosen";
             }else if(jenis.getSelectedItem()=="LABORAN"){
-                String strSelect = "select * from laboran";
+                strSelect = "select * from laboran";
+            }
                 ResultSet rset=stmt.executeQuery(strSelect);
                 while(rset.next()){
-                x.put(rset.getString("id_laboran"),rset.getString("nama_laboran"));
+                    x.put(rset.getString(1),rset.getString(2));
                 }
-                
-                if(x.keySet().contains(NIM.getText())==true && x.get(rset.getString("id_laboran"))==nama.getText()){
-                kondisi="benar";
-                }
-            }
-            return kondisi;
-            
         }catch(SQLException ex){
         }
-        return "";
+        
+        if(nama.getText().equalsIgnoreCase(x.get(NIM.getText())) && x.keySet().contains(NIM.getText())==true){
+            return true;
+        }else{
+            return false;
+        }
     }
+    
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try( Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/labkom_itera1", "root", "");
             Statement stmt = conn.createStatement();
                 ){
-            if(cekanggota()==""){   
+            if(true==cekanggota()){   
                 if(password.getText().equals(repassword.getText())){
                     String insert = String.format("insert into user values('%s','%s',md5('%s'));", nama.getText(), username.getText(), password.getText());
                     if(nama.getText()!= "" && NIM.getText()!= "" && username.getText()!= "" && password.getText()!= "" 
@@ -235,6 +228,7 @@ public class Daftar extends javax.swing.JFrame {
                 }
            }else{
                 JOptionPane.showMessageDialog(null, "anda bukan asprak/dosen/laboran yang terdaftar di database");
+                JOptionPane.showMessageDialog(null,cekanggota());
            }
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Error broo, username sudah ada");

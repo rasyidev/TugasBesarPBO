@@ -5,12 +5,15 @@
  */
 package TampilanMenu;
 
+import ToDb.DBLab;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import penjelasan.Connect;
+import penjelasan.Labolaturium;
 
 
 /**
@@ -19,30 +22,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class formLab extends javax.swing.JFrame {
     private void tampilkandata(){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("KODE LAB");
-        x.addColumn("NAMA LAB");
-        x.addColumn("RUANG LAB");
-        x.addColumn("KAPASITAS");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from lab";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
-            }
-            tbllab.setModel(x);
-        }catch(SQLException ex){
-            
-        }
+       DBLab x = new DBLab(tbllab);
+       x.tampil();
     }
     /**
      * Creates new form formLab
@@ -76,7 +57,6 @@ public class formLab extends javax.swing.JFrame {
         btnupdate = new javax.swing.JButton();
         btnadd = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
-        tfpesan = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -198,7 +178,6 @@ public class formLab extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 325, -1, -1));
-        getContentPane().add(tfpesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 393, 340, 80));
 
         jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel5.setText("MODIFIKASI DATA LAB");
@@ -231,21 +210,26 @@ public class formLab extends javax.swing.JFrame {
     }//GEN-LAST:event_tfruangActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        
+        Labolaturium x = new Labolaturium(
+                        tfkodelab.getText(),
+                        tfnamalab.getText(),
+                        tfruang.getText(),
+                        Integer.parseInt(tfkapasitas.getText())
+                        );
+        
         DefaultTableModel model = (DefaultTableModel) tbllab.getModel();
         try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
+                Connection y = new Connect().getKoneksi();
+                Statement stmt = y.createStatement();
         ){
             String update = "update lab set kode_lab='"+tfkodelab.getText()+"',nama_lab='"+tfnamalab.getText()+"',nama_ruang='"+tfruang.getText()+
                     "',kapasitas="+tfkapasitas.getText()+" where kode_lab='"+model.getValueAt(tbllab.getSelectedRow(), 0).toString()+"'";
             stmt.executeUpdate(update);
-            tfpesan.setText("update data berhasil");
+            JOptionPane.showMessageDialog(null, "update data berhasil");
             tampilkandata();
         }catch (SQLException ex) {
-            tfpesan.setText("gagal update data");
+            JOptionPane.showMessageDialog(null, "gagal update data");
         }
     }//GEN-LAST:event_btnupdateActionPerformed
 
@@ -260,11 +244,11 @@ public class formLab extends javax.swing.JFrame {
             String insert = "insert into lab values ('"+tfkodelab.getText()+"','"+tfnamalab.getText()+"','"+tfruang.getText()+"',"+
                     tfkapasitas.getText()+")";
             stmt.executeUpdate(insert);
-            tfpesan.setText("tambah data berhasil");
+            JOptionPane.showMessageDialog(null, "tambah data berhasil");
             tampilkandata();        
             
         } catch (SQLException ex) {
-            tfpesan.setText("gagal tambah data");
+            JOptionPane.showMessageDialog(null, "gagal tambah data");
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
@@ -278,10 +262,10 @@ public class formLab extends javax.swing.JFrame {
         ){
             String delete = "delete from lab where kode_lab = '"+tfkodelab.getText()+"'";
             stmt.executeUpdate(delete);
-            tfpesan.setText("hapus data berhasil");
+            JOptionPane.showMessageDialog(null, "hapus data berhasil");
             tampilkandata();
         }catch (SQLException ex) {
-            tfpesan.setText("gagal hapus data");
+            JOptionPane.showMessageDialog(null, "gagal hapus data");
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 
@@ -346,7 +330,6 @@ public class formLab extends javax.swing.JFrame {
     private javax.swing.JTextField tfkapasitas;
     private javax.swing.JTextField tfkodelab;
     private javax.swing.JTextField tfnamalab;
-    private javax.swing.JTextField tfpesan;
     private javax.swing.JTextField tfruang;
     // End of variables declaration//GEN-END:variables
 }

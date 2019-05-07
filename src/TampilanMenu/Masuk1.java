@@ -5,12 +5,7 @@
  */
 package TampilanMenu;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashSet;
+import ToDb.Masuk;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,56 +21,7 @@ public class Masuk1 extends javax.swing.JFrame {
         initComponents();
     }
 
-        public String pass(){
-        String pass = null;    
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String select = "select password from user where username='"+username.getText()+"'";
-          
-            ResultSet rset=stmt.executeQuery(select);
-            int i=0;
-            while(rset.next()){
-                //String username=rset.getString("username");
-                pass=rset.getString("password");
-                i++;
-            }
-            if(i==0){
-                JOptionPane.showMessageDialog(null,"username tidak boleh kosong");
-            }
-            return pass;
-        }catch(SQLException ex){
-            
-        }
-        return "";
-    }
-    public String md5(){
-        String pw = null;
-            try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String select = "select md5('"+pass.getText()+"') as pw";
-            ResultSet rset=stmt.executeQuery(select);
-            //System.out.println("the record selected are:");
-            
-            while(rset.next()){
-                pw=rset.getString("pw");
-            }
-            return pw;
-        }catch(SQLException ex){
-            
-        }
-        return "";
-    }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -191,16 +137,17 @@ public class Masuk1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             MenuUtama x = new MenuUtama();
-            if(pass().equals(md5())){
+            Masuk y = new Masuk() {};
+            if(y.cekstatus(username.getText(), pass.getText())){
                 x.setVisible(true);
                 this.setVisible(false);
             }else{
-              JOptionPane.showMessageDialog(null, "Password salah ");
+              JOptionPane.showMessageDialog(null, "password salah ");
             }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

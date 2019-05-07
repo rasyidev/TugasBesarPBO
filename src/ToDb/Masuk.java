@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ToDb;
 
 /**
@@ -10,103 +6,74 @@ package ToDb;
  * @author Mahasiswa
  */
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import penjelasan.Connect;
-
+import penjelasan.UserLogin;
 public abstract class Masuk {
-    protected String sql;
-    private final Connection conn = new Connect().getKoneksi();
-    private ResultSet  rs;
-    private Statement st;
+    UserLogin user;
     
-    
-    public abstract void setSQL(String username);
-    
-    //Menngambil password User
-    public String getPasswordUser(){
-        String pass = null;
-        try {
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
-            while(rs.next()){
-                pass = rs.getString("password");
-            }
-            return pass;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return null;
+    public Masuk(){
+        user=new UserLogin();
     }
     
-    //konveri password ke md5
-    public String md5Password(String p){
-        
-        String pass = null;
-        try {
-            st = conn.createStatement();
-            String sqlConversi = " SELECT md5('"+p+"') as pass";
-            rs = st.executeQuery(sqlConversi);
-            while(rs.next()){
-                pass = rs.getString("pass");
+    public String pass(String username){
+        String pass = null;    
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String select = "select password from user where username='"+username+"'";
+          
+            ResultSet rset=stmt.executeQuery(select);
+            int i=0;
+            while(rset.next()){
+                pass=rset.getString("password");
+                i++;
+            }
+            if(i==0){
+                JOptionPane.showMessageDialog(null,"username tidak boleh kosong atau username tidak ada");
             }
             return pass;
-        } catch (SQLException ex) {
+
+        }catch(SQLException ex){
             
         }
-     
+        return "";
         
+    }
+    public String md5(String pass){
+        String pw = null;
+            try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String select = "select md5('"+pass+"') as pw";
+            ResultSet rset=stmt.executeQuery(select);
+            
+            while(rset.next()){
+                pw=rset.getString("pw");
+            }
+            return pw;
+        }catch(SQLException ex){
+            
+        }
         return "";
     }
     
-    public boolean passwordCocok(String password){
-        if(getPasswordUser()!=null){
-            if(getPasswordUser().equals(md5Password(password))){
-                return true;
-            }
+    public boolean cekstatus(String username,String pass){
+        if(pass(username).equals(md5(pass))){
+            return true;
         }
         return false;
     }
-    
-    public boolean validasiUser(String u,String p){
-        setSQL(u);
-        return (
-                    !u.isEmpty() && !p.isEmpty() &&
-                    passwordCocok(p)
-                );
-    }
-    
-//    SIGN UP
-    
-   public  abstract boolean  validasiData();
-   
-   public void Pesan(String text){
-       JOptionPane.showMessageDialog(null, text);
-   }
-   
-   public void Daftar(){
-       setSQL();
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-            Pesan("Berhasil ditambahkan");
-        } catch (SQLException ex) {
 
-            if(ex.getErrorCode()==1062){
-                Pesan(
-                    "Gagal Mendaftar \n"+
-                            "Username Sudah Ditambah,\n"
-                            + "Gunakan Username Lain!");   
-            }else{
-                Pesan(
-                    "Gagal Mendaftar \n"+
-                            ex.getMessage());   
-            }
-        
-        }
-   
-   }
-   public abstract  void setSQL();
 }

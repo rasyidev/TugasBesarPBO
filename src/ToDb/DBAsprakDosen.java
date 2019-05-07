@@ -15,24 +15,8 @@ public class DBAsprakDosen extends Masuk {
     public DBAsprakDosen (){
         DBAsprakDosen mp = new DBAsprakDosen();
     }
-    
     public DBAsprakDosen (DBAsprakDosen mp) {
         this.mp = mp;
     }
-
-    @Override
-    public void setSQL(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean validasiData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setSQL() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+ 
 }

@@ -55,10 +55,6 @@
                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="BTNCARI" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                          <Component id="TFPESAN" min="-2" pref="243" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jScrollPane1" alignment="0" min="-2" pref="1013" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -110,9 +106,7 @@
                   </Group>
                   <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
                   <Component id="BTNCARI" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="TFPESAN" min="-2" pref="51" max="-2" attributes="0"/>
-                  <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="139" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -176,13 +170,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNBATALActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="TFPESAN">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="11" style="1"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
