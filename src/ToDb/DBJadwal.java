@@ -6,12 +6,12 @@
 package ToDb;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import penjelasan.Connect;
 
 /**
  *
@@ -34,11 +34,8 @@ public class DBJadwal {
         x.addColumn("kode lab");
         
         try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
+            Connection y = new Connect().getKoneksi();
+                Statement stmt = y.createStatement();
         ){
             String strSelect = "select * from jadwal";
             

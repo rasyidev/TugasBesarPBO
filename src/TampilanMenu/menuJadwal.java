@@ -258,7 +258,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 Statement stmt = conn.createStatement();
         ){
             String insert = "insert into jadwal values ("+tfid.getText()+",'"+tfprodi.getText()+"','"+tfmatkul.getText()+"','"+
-                    tfkodelab.getText()+"','"+cmbhari.getSelectedItem()+"','"+tfjam.getText()+"')";
+                    tfkodelab.getText().toUpperCase()+"','"+cmbhari.getSelectedItem()+"','"+tfjam.getText()+"')";
             stmt.executeUpdate(insert);
             tfpesan.setText("tambah data berhasil");
             tampilkandata();        
