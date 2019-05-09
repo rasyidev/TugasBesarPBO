@@ -235,7 +235,7 @@ public class Daftar extends javax.swing.JFrame {
                 }
            }else{
                 JOptionPane.showMessageDialog(null, "anda bukan asprak/dosen/laboran yang terdaftar di database");
-                JOptionPane.showMessageDialog(null,cekanggota());
+               
            }
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Error broo, username sudah ada");

@@ -403,12 +403,10 @@ public class MenuPinjamLab extends javax.swing.JFrame {
         ){
             String delete = "delete from pinjam_lab where id_peminjam = '"+id.getText()+"'";
             stmt.executeUpdate(delete);
-            JOptionPane.showMessageDialog(null, "hapus data berhasil");
             tampilkandata();
             tampilkanpinjam();
             kosongft();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "gagal hapus data");
         }
     }//GEN-LAST:event_DELETEActionPerformed
 

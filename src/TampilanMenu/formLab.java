@@ -266,10 +266,9 @@ public class formLab extends javax.swing.JFrame {
         ){
             String delete = "delete from lab where kode_lab = '"+tfkodelab.getText()+"'";
             stmt.executeUpdate(delete);
-            JOptionPane.showMessageDialog(null, "hapus data berhasil");
             tampilkandata();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "gagal hapus data");
+            
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 

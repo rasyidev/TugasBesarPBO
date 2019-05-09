@@ -278,11 +278,10 @@ public class menuJadwal extends javax.swing.JFrame {
         ){
             String delete = "delete from jadwal where id_jadwal = '"+tfid.getText()+"'";
             stmt.executeUpdate(delete);
-            tfpesan.setText("hapus data berhasil");
             tampilkandata();
             kosongft();
         }catch (SQLException ex) {
-            tfpesan.setText("gagal hapus data");
+
         }
         
     }//GEN-LAST:event_btndeleteActionPerformed

@@ -324,10 +324,9 @@ private void tampilkandata(){
         ){
             String delete = "delete from laboran where id_laboran = '"+tfid.getText()+"'";
             stmt.executeUpdate(delete);
-            tfpesan.setText("hapus data berhasil");
             tampilkandata();
         }catch (SQLException ex) {
-            tfpesan.setText("gagal hapus data");
+           
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 
