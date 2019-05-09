@@ -90,6 +90,7 @@ public class menuJadwal extends javax.swing.JFrame {
         jlkodealab = new javax.swing.JLabel();
         tfkodelab = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(100, 200));
@@ -214,9 +215,12 @@ public class menuJadwal extends javax.swing.JFrame {
         tfkodelab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 209, 349, -1));
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel1.setText("MODIFIKASI DATA JADWAL");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 0, 170, 34));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 410, 34));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/graphic-background-png-5.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -345,6 +349,7 @@ public class menuJadwal extends javax.swing.JFrame {
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox cmbhari;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLidjadwal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlhari;

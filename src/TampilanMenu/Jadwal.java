@@ -136,6 +136,7 @@ public class Jadwal extends javax.swing.JFrame {
         cmburut = new javax.swing.JComboBox();
         btnubah = new javax.swing.JButton();
         btnkembali = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -162,9 +163,9 @@ public class Jadwal extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 326, 1013, 139));
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel1.setText("JADWAL LAB KOMPUTER ITERA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, -1, 42));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, 42));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         jLabel2.setText("CARI JADWAL");
@@ -233,6 +234,9 @@ public class Jadwal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnkembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(791, 169, 89, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/solution-lab.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 310, 160));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -332,6 +336,7 @@ public class Jadwal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbljadwal;
     // End of variables declaration//GEN-END:variables

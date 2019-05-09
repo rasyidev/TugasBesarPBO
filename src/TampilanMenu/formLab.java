@@ -58,6 +58,7 @@ public class formLab extends javax.swing.JFrame {
         btnadd = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -179,9 +180,12 @@ public class formLab extends javax.swing.JFrame {
         });
         getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 325, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel5.setText("MODIFIKASI DATA LAB");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 11, -1, 41));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/blue-abstract-background-png-1024x655.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -323,6 +327,7 @@ public class formLab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
