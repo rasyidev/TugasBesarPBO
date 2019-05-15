@@ -34,9 +34,6 @@ public class Connect {
     public Connection getKoneksi(){
         return this.conn;
     }
-    
-    public static void main(String[] args) {
-        Connect k = new Connect();
-    }
+  
     
 }

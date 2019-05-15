@@ -10,9 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import penjelasan.Connect;
 import penjelasan.Labolaturium;
 
 
@@ -214,62 +212,41 @@ public class formLab extends javax.swing.JFrame {
     }//GEN-LAST:event_tfruangActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-        
-        Labolaturium x = new Labolaturium(
-                        tfkodelab.getText(),
-                        tfnamalab.getText(),
-                        tfruang.getText(),
-                        Integer.parseInt(tfkapasitas.getText())
-                        );
-        
         DefaultTableModel model = (DefaultTableModel) tbllab.getModel();
-        try(
-                Connection y = new Connect().getKoneksi();
-                Statement stmt = y.createStatement();
-        ){
-            String update = "update lab set kode_lab='"+tfkodelab.getText()+"',nama_lab='"+tfnamalab.getText()+"',nama_ruang='"+tfruang.getText()+
-                    "',kapasitas="+tfkapasitas.getText()+" where kode_lab='"+model.getValueAt(tbllab.getSelectedRow(), 0).toString()+"'";
-            stmt.executeUpdate(update);
-            JOptionPane.showMessageDialog(null, "update data berhasil");
-            tampilkandata();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "gagal update data");
-        }
+        
+        int kapasitas=Integer.parseInt(tfkapasitas.getText());
+        
+        Labolaturium lab=new Labolaturium(tfkodelab.getText(),tfnamalab.getText(),tfruang.getText(),kapasitas);
+        
+        String kode = model.getValueAt(tbllab.getSelectedRow(), 0).toString(); //mendapatkan kode lab untuk kunci update
+        
+        DBLab lab1=new DBLab();
+        lab1.setLab(lab);
+        lab1.update(kode);
+        tampilkandata();      
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String insert = "insert into lab values ('"+tfkodelab.getText()+"','"+tfnamalab.getText()+"','"+tfruang.getText()+"',"+
-                    tfkapasitas.getText()+")";
-            stmt.executeUpdate(insert);
-            JOptionPane.showMessageDialog(null, "tambah data berhasil");
-            tampilkandata();        
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "gagal tambah data");
-        }
+        
+        int kapasitas=Integer.parseInt(tfkapasitas.getText());
+        Labolaturium lab=new Labolaturium(tfkodelab.getText(),tfnamalab.getText(),tfruang.getText(),kapasitas);
+        
+        DBLab lab1=new DBLab();
+        lab1.setLab(lab);
+        lab1.add();
+        tampilkandata();
+        
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String delete = "delete from lab where kode_lab = '"+tfkodelab.getText()+"'";
-            stmt.executeUpdate(delete);
-            tampilkandata();
-        }catch (SQLException ex) {
-            
-        }
+        int kapasitas=Integer.parseInt(tfkapasitas.getText());
+        Labolaturium lab=new Labolaturium(tfkodelab.getText(),tfnamalab.getText(),tfruang.getText(),kapasitas);
+        
+        DBLab lab1=new DBLab();
+        lab1.setLab(lab);
+        lab1.delete();
+        tampilkandata();
+        
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void tbllabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbllabMouseClicked

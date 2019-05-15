@@ -416,7 +416,7 @@ public class MenuPinjamLab extends javax.swing.JFrame {
         cmbjam.setSelectedItem(model.getValueAt(tblPINJAM.getSelectedRow(), 1).toString());
         cmbhari.setSelectedItem(model.getValueAt(tblPINJAM.getSelectedRow(), 2).toString());
         kodelab.setText(model.getValueAt(tblPINJAM.getSelectedRow(), 3).toString());
-        id.setText(model.getValueAt(tblPINJAM.getSelectedRow(), 4).toString());        // TODO add your handling code here:
+        id.setText(model.getValueAt(tblPINJAM.getSelectedRow(), 4).toString());       
         peminjam.setText(model.getValueAt(tblPINJAM.getSelectedRow(), 5).toString());
     }//GEN-LAST:event_tblPINJAMMouseClicked
 
