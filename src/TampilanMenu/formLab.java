@@ -6,10 +6,6 @@
 package TampilanMenu;
 
 import ToDb.DBLab;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import penjelasan.Labolaturium;
 
@@ -217,7 +213,7 @@ public class formLab extends javax.swing.JFrame {
         int kapasitas=Integer.parseInt(tfkapasitas.getText());
         
         Labolaturium lab=new Labolaturium(tfkodelab.getText(),tfnamalab.getText(),tfruang.getText(),kapasitas);
-        
+  
         String kode = model.getValueAt(tbllab.getSelectedRow(), 0).toString(); //mendapatkan kode lab untuk kunci update
         
         DBLab lab1=new DBLab();
