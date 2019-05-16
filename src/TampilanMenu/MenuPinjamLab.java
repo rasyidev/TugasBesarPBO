@@ -20,7 +20,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuPinjamLab extends javax.swing.JFrame {
     private void kosongft(){
-        tanggalpinjam.setText(null);
+        th.setText(null);
+        bl.setSelectedIndex(0);
+        hr.setSelectedIndex(0);
         cmbjam.setSelectedIndex(0);
         kodelab.setText(null);
         cmbhari.setSelectedIndex(0);
@@ -93,8 +95,9 @@ public class MenuPinjamLab extends javax.swing.JFrame {
         tampilkandata();
         tampilkanpinjam();
     }
-    
+   
     public void cektanggal(){
+   
         HashSet<String> cekjam = new HashSet();
         HashSet<String> ceklab= new HashSet();
         try(
@@ -104,7 +107,7 @@ public class MenuPinjamLab extends javax.swing.JFrame {
                     "");
                 Statement stmt = conn.createStatement();
         ){
-            String select="select * from pinjam_lab where tanggal_pinjam='"+tanggalpinjam.getText()+"' and jam='"+
+            String select="select * from pinjam_lab where tanggal_pinjam='"+th.getText()+"-"+bl.getSelectedItem()+"-"+hr.getSelectedItem()+"' and jam='"+
                     cmbjam.getSelectedItem()+"'";
             ResultSet rset=stmt.executeQuery(select);
             while(rset.next()){
@@ -132,7 +135,7 @@ public class MenuPinjamLab extends javax.swing.JFrame {
                     "");
                 Statement stmt = conn.createStatement();
         ){
-            String insert = "insert into pinjam_lab values ('"+tanggalpinjam.getText()+"','"+cmbjam.getSelectedItem()+"','"+
+            String insert = "insert into pinjam_lab values ('"+th.getText()+"-"+bl.getSelectedItem()+"-"+hr.getSelectedItem()+"','"+cmbjam.getSelectedItem()+"','"+
                     cmbhari.getSelectedItem()+"','"+kodelab.getText().toUpperCase()+"',"+id.getText()+",'"+peminjam.getText()+"')";
             stmt.executeUpdate(insert);
             JOptionPane.showMessageDialog(null, "tambah data berhasil");
@@ -164,7 +167,6 @@ public class MenuPinjamLab extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         cmbjam = new javax.swing.JComboBox();
         cmbhari = new javax.swing.JComboBox();
-        tanggalpinjam = new javax.swing.JTextField();
         kodelab = new javax.swing.JTextField();
         id = new javax.swing.JTextField();
         peminjam = new javax.swing.JTextField();
@@ -172,6 +174,10 @@ public class MenuPinjamLab extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
+        bl = new javax.swing.JComboBox();
+        hr = new javax.swing.JComboBox();
+        th = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -234,12 +240,6 @@ public class MenuPinjamLab extends javax.swing.JFrame {
 
         cmbhari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu" }));
 
-        tanggalpinjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tanggalpinjamActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("SAVE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,6 +268,12 @@ public class MenuPinjamLab extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        bl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        hr.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -290,34 +296,41 @@ public class MenuPinjamLab extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbhari, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbhari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbjam, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tanggalpinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbjam, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(136, 136, 136)
+                                .addComponent(th)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bl, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(hr, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kodelab)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(id, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(peminjam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(133, 133, 133)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(id, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(peminjam, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
+                            .addComponent(kodelab))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(478, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(466, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,8 +343,10 @@ public class MenuPinjamLab extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tanggalpinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kodelab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kodelab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(th, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,16 +366,18 @@ public class MenuPinjamLab extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(DELETE))
                 .addGap(20, 20, 20))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(236, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(237, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tanggalpinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanggalpinjamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tanggalpinjamActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         HashSet<String> cekjam = new HashSet();
         HashSet<String> ceklab = new HashSet();
         try(
@@ -412,7 +429,6 @@ public class MenuPinjamLab extends javax.swing.JFrame {
 
     private void tblPINJAMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPINJAMMouseClicked
         DefaultTableModel model = (DefaultTableModel) tblPINJAM.getModel();
-        tanggalpinjam.setText(model.getValueAt(tblPINJAM.getSelectedRow(), 0).toString());
         cmbjam.setSelectedItem(model.getValueAt(tblPINJAM.getSelectedRow(), 1).toString());
         cmbhari.setSelectedItem(model.getValueAt(tblPINJAM.getSelectedRow(), 2).toString());
         kodelab.setText(model.getValueAt(tblPINJAM.getSelectedRow(), 3).toString());
@@ -468,12 +484,15 @@ public class MenuPinjamLab extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DELETE;
+    private javax.swing.JComboBox bl;
     private javax.swing.JComboBox cmbhari;
     private javax.swing.JComboBox cmbjam;
+    private javax.swing.JComboBox hr;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -484,8 +503,8 @@ public class MenuPinjamLab extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField kodelab;
     private javax.swing.JTextField peminjam;
-    private javax.swing.JTextField tanggalpinjam;
     private javax.swing.JTable tblPINJAM;
     private javax.swing.JTable tbljadwal;
+    private javax.swing.JTextField th;
     // End of variables declaration//GEN-END:variables
 }

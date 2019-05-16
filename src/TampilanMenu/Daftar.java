@@ -203,7 +203,8 @@ public class Daftar extends javax.swing.JFrame {
                 }
         }catch(SQLException ex){
         }
-        
+        /*x.keySet().contains(NIM.getText()) untuk cek nim yang diinput ada atau tidak didalam list
+        hashmap*/
         if(nama.getText().equalsIgnoreCase(x.get(NIM.getText())) && x.keySet().contains(NIM.getText())==true){
             return true;
         }else{

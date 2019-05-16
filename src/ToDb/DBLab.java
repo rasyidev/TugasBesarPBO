@@ -6,7 +6,6 @@
 package ToDb;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -32,10 +31,6 @@ public class DBLab {
         this.table=table;
     }
 
-    public void lab(Labolaturium lab){
-           this.lab=lab;
-       }
-    
     public void setLab(Labolaturium lab){
         this.lab=lab;
     }
@@ -51,6 +46,7 @@ public class DBLab {
             
         }
     }
+    
     public void update(String kode){ //merubah data
         try(
                 Connection y = new Connect().getKoneksi();
@@ -140,12 +136,17 @@ public class DBLab {
             String strSelect = "select * from lab where kode_lab like '%"+kolom+"%' or "+
                     "nama_lab like '%"+kolom+"%' or nama_ruang like '%"+kolom+"%' or kapasitas like '%"+kolom+"%'";
             ResultSet rset=stmt.executeQuery(strSelect);
+            int i=0;
             while(rset.next()){
                 x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
+                i++;
+            }
+            if(i==0){
+                JOptionPane.showMessageDialog(null, "data tidak ada");
             }
             table.setModel(x);
         }catch(SQLException ex){
-           JOptionPane.showMessageDialog(null, "gagal cari");
+           
         }
     }
 }

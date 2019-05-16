@@ -5,12 +5,8 @@
  */
 package TampilanMenu;
 
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import penjelasan.Jadwal1;
+import ToDb.DBJadwal;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -22,36 +18,12 @@ public class menuJadwal extends javax.swing.JFrame {
         tfprodi.setText(null);
         tfmatkul.setText(null);
         cmbhari.setSelectedIndex(0);
-        tfjam.setText(null);
+        jam.setSelectedIndex(0);
         tfkodelab.setText(null);
     }
     private void tampilkandata(){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("id jadwal");
-        x.addColumn("program studi");
-        x.addColumn("mata kuliah");
-        x.addColumn("hari");
-        x.addColumn("jam");
-        x.addColumn("kode lab");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from jadwal";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
-            }
-            tbljadwal.setModel(x);
-        }catch(SQLException ex){
-            
-        }
+        DBJadwal x = new DBJadwal(tbljadwal);
+        x.table();
     }
     /**
      * Creates new form login
@@ -80,7 +52,6 @@ public class menuJadwal extends javax.swing.JFrame {
         tfid = new javax.swing.JTextField();
         tfprodi = new javax.swing.JTextField();
         tfmatkul = new javax.swing.JTextField();
-        tfjam = new javax.swing.JTextField();
         cmbhari = new javax.swing.JComboBox();
         btnadd = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
@@ -91,6 +62,10 @@ public class menuJadwal extends javax.swing.JFrame {
         tfkodelab = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jam = new javax.swing.JComboBox();
+        cmbhari1 = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(100, 200));
@@ -157,9 +132,6 @@ public class menuJadwal extends javax.swing.JFrame {
         tfmatkul.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         getContentPane().add(tfmatkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 114, 349, -1));
 
-        tfjam.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
-        getContentPane().add(tfjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 179, 349, -1));
-
         cmbhari.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         cmbhari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" }));
         getContentPane().add(cmbhari, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 149, 349, -1));
@@ -189,7 +161,7 @@ public class menuJadwal extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 242, -1, -1));
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
 
         btncancel.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         btncancel.setText("cancel");
@@ -213,14 +185,32 @@ public class menuJadwal extends javax.swing.JFrame {
         getContentPane().add(jlkodealab, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 207, 69, 24));
 
         tfkodelab.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
-        getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 209, 349, -1));
+        getContentPane().add(tfkodelab, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 209, 350, -1));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel1.setText("MODIFIKASI DATA JADWAL");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 410, 34));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/graphic-background-png-5.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 360));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 350, 160));
+
+        jam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "09:00", "11:00", "13:00", "15:00", "17:00" }));
+        jam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jamActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jam, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 220, -1));
+
+        cmbhari1.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
+        cmbhari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" }));
+        getContentPane().add(cmbhari1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 149, 349, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/graphic-background-png-5.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 360));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/graphic-background-png-5.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 390, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -231,59 +221,39 @@ public class menuJadwal extends javax.swing.JFrame {
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         DefaultTableModel model = (DefaultTableModel) tbljadwal.getModel();
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String update = "update jadwal set id_jadwal="+tfid.getText()+",prodi='"+tfprodi.getText()+"',mata_kuliah='"+tfmatkul.getText()+
-                    "',kode_lab='"+tfkodelab.getText()+"',hari='"+cmbhari.getSelectedItem()+"',jam='"+tfjam.getText()+"' where id_jadwal = "+model.getValueAt(tbljadwal.getSelectedRow(), 0);
-            stmt.executeUpdate(update);
-            tfpesan.setText("update data berhasil");
-            tampilkandata();
-            kosongft();
-        }catch (SQLException ex) {
-            tfpesan.setText("gagal update data");
-        }
+        int id=Integer.parseInt(tfid.getText());
+        int idjadwal = Integer.parseInt(model.getValueAt(tbljadwal.getSelectedRow(), 0).toString());
+        
+        Jadwal1 jad = new Jadwal1(id,tfprodi.getText(),tfmatkul.getText(),tfkodelab.getText().toUpperCase(),cmbhari.getSelectedItem().toString(),
+                jam.getSelectedItem().toString());
+        
+        DBJadwal x = new DBJadwal();
+        x.setJadwal(jad);
+        x.update(idjadwal);
+        tampilkandata();
+        kosongft();
+        
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String insert = "insert into jadwal values ("+tfid.getText()+",'"+tfprodi.getText()+"','"+tfmatkul.getText()+"','"+
-                    tfkodelab.getText().toUpperCase()+"','"+cmbhari.getSelectedItem()+"','"+tfjam.getText()+"')";
-            stmt.executeUpdate(insert);
-            tfpesan.setText("tambah data berhasil");
-            tampilkandata();        
-            kosongft();
-        } catch (SQLException ex) {
-            tfpesan.setText("gagal tambah data");
-        }
+        int id=Integer.parseInt(tfid.getText());
+        Jadwal1 jad = new Jadwal1(id,tfprodi.getText(),tfmatkul.getText(),tfkodelab.getText().toUpperCase(),cmbhari.getSelectedItem().toString(),
+                jam.getSelectedItem().toString());
+        DBJadwal x = new DBJadwal();
+        x.setJadwal(jad);
+        x.add();
+        tampilkandata();
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String delete = "delete from jadwal where id_jadwal = '"+tfid.getText()+"'";
-            stmt.executeUpdate(delete);
-            tampilkandata();
-            kosongft();
-        }catch (SQLException ex) {
-
-        }
-        
+        int id=Integer.parseInt(tfid.getText());
+        Jadwal1 jad = new Jadwal1(id,tfprodi.getText(),tfmatkul.getText(),tfkodelab.getText().toUpperCase(),cmbhari.getSelectedItem().toString(),
+                jam.getSelectedItem().toString());
+        DBJadwal x = new DBJadwal();    
+        x.setJadwal(jad);
+        x.delete();
+        tampilkandata();
+        kosongft();
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
@@ -302,10 +272,14 @@ public class menuJadwal extends javax.swing.JFrame {
         tfprodi.setText(model.getValueAt(tbljadwal.getSelectedRow(), 1).toString());
         tfmatkul.setText(model.getValueAt(tbljadwal.getSelectedRow(), 2).toString());
         cmbhari.setSelectedItem(model.getValueAt(tbljadwal.getSelectedRow(), 3).toString());
-        tfjam.setText(model.getValueAt(tbljadwal.getSelectedRow(), 4).toString());
+        jam.setSelectedItem(model.getValueAt(tbljadwal.getSelectedRow(), 4).toString());
         tfkodelab.setText(model.getValueAt(tbljadwal.getSelectedRow(), 5).toString());
 
     }//GEN-LAST:event_tbljadwalMouseClicked
+
+    private void jamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,10 +321,14 @@ public class menuJadwal extends javax.swing.JFrame {
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox cmbhari;
+    private javax.swing.JComboBox cmbhari1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLidjadwal;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox jam;
     private javax.swing.JLabel jlhari;
     private javax.swing.JLabel jljam;
     private javax.swing.JLabel jlkodealab;
@@ -358,7 +336,6 @@ public class menuJadwal extends javax.swing.JFrame {
     private javax.swing.JLabel jlprodi;
     private javax.swing.JTable tbljadwal;
     private javax.swing.JTextField tfid;
-    private javax.swing.JTextField tfjam;
     private javax.swing.JTextField tfkodelab;
     private javax.swing.JTextField tfmatkul;
     private javax.swing.JTextField tfpesan;

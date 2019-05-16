@@ -5,106 +5,28 @@
  */
 package TampilanMenu;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
-
+import ToDb.DBJadwal;
 /**
  *
  * @author USER
  */
 public class Jadwal extends javax.swing.JFrame {
+
+    
   
      private void tampilkandata(){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("id jadwal");
-        x.addColumn("program studi");
-        x.addColumn("mata kuliah");
-        x.addColumn("hari");
-        x.addColumn("jam");
-        x.addColumn("kode lab");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from jadwal";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
-            }
-            tbljadwal.setModel(x);
-        }catch(SQLException ex){
-            
-        }
+        DBJadwal x = new DBJadwal(tbljadwal);
+        x.table();
     }
+     
      private void tampilkandata(String kolom){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("id jadwal");
-        x.addColumn("program studi");
-        x.addColumn("mata kuliah");
-        x.addColumn("hari");
-        x.addColumn("jam");
-        x.addColumn("kode lab");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from jadwal order by "+kolom+" asc";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
-            }
-            tbljadwal.setModel(x);
-        }catch(SQLException ex){
-            
-        }
+        DBJadwal x = new DBJadwal(tbljadwal);
+        x.urut(kolom);
     }
      
      private void tampilkancari(String kolom){
-        DefaultTableModel x = new DefaultTableModel();
-        x.addColumn("id jadwal");
-        x.addColumn("program studi");
-        x.addColumn("mata kuliah");
-        x.addColumn("hari");
-        x.addColumn("jam");
-        x.addColumn("kode lab");
-        
-        try(
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/labkom_itera1",
-                    "root",
-                    "");
-                Statement stmt = conn.createStatement();
-        ){
-            String strSelect = "select * from jadwal where id_jadwal like '%"+kolom+"%' or "+
-                    "prodi like '%"+kolom+"%' or mata_kuliah like '%"+kolom+"%' or "+
-                    "hari like '%"+kolom+"%' or jam like '%"+kolom+"%' or kode_lab like '%"+kolom+"%'";
-            
-            ResultSet rset=stmt.executeQuery(strSelect);
-            
-            while(rset.next()){
-                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(5),rset.getString(6),rset.getString(4)});
-            }
-            tbljadwal.setModel(x);
-        }catch(SQLException ex){
-            TFPESAN.setText("gagal cari");
-            ex.printStackTrace();
-        }
+        DBJadwal x = new DBJadwal(tbljadwal);
+        x.cari(kolom);
     }
     /**
      * Creates new form Jadwal
@@ -258,8 +180,7 @@ public class Jadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnkembaliActionPerformed
 
     private void cmburutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmburutActionPerformed
-        String kolom;
-        
+       
         if (cmburut.getSelectedItem()=="id jadwal"){
            tampilkandata("id_jadwal");
         }

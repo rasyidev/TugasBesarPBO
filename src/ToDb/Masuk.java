@@ -11,12 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import penjelasan.UserLogin;
-public abstract class Masuk {
-    UserLogin user;
+
+public class Masuk {
+    
     
     public Masuk(){
-        user=new UserLogin();
+        
     }
     
     public String pass(String username){

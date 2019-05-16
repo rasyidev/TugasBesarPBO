@@ -62,7 +62,7 @@ public class Masuk1 extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
-        jButton2.setText("cancel");
+        jButton2.setText("keluar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -137,7 +137,7 @@ public class Masuk1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             MenuUtama x = new MenuUtama();
-            Masuk y = new Masuk() {};
+            Masuk y = new Masuk();
             if(y.cekstatus(username.getText(), pass.getText())){
                 x.setVisible(true);
                 this.setVisible(false);

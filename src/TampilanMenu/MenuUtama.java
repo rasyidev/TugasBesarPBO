@@ -120,7 +120,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 377, 109, 90));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 109, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/alienware_1_by_rajivmessi-d7es5a9.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));

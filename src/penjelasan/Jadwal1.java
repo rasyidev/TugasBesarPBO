@@ -9,17 +9,17 @@ package penjelasan;
  *
  * @author USER
  */
-public class Jadwal {
+public class Jadwal1 {
     int id_jadwal;
-    String prodi,matkul,tanggal,jam,kode_lab;
+    String prodi,matkul,hari,jam,kodelab;
 
-    public Jadwal(int id_jadwal, String prodi, String matkul, String tanggal, String jam, String kode_lab) {
+    public Jadwal1(int id_jadwal, String prodi, String matkul, String kodelab,String hari, String jam) {
         this.id_jadwal = id_jadwal;
         this.prodi = prodi;
         this.matkul = matkul;
-        this.tanggal = tanggal;
+        this.hari = hari;
         this.jam = jam;
-        this.kode_lab = kode_lab;
+        this.kodelab = kodelab;
     }
    
     public void setId_jadwal(int id_jadwal){
@@ -37,16 +37,16 @@ public class Jadwal {
         this.matkul = matkul;
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public void setTanggal(String hari) {
+        this.hari= hari;
     }
 
     public void setJam(String jam) {
         this.jam = jam;
     }
 
-    public void setKode_lab(String kode_lab) {
-        this.kode_lab = kode_lab;
+    public void setKode_lab(String kodelab) {
+        this.kodelab = kodelab;
     }
 
     public String getProdi() {
@@ -57,8 +57,8 @@ public class Jadwal {
         return matkul;
     }
 
-    public String getTanggal() {
-        return tanggal;
+    public String getHari() {
+        return hari;
     }
 
     public String getJam() {
@@ -66,7 +66,7 @@ public class Jadwal {
     }
 
     public String getKode_lab() {
-        return kode_lab;
+        return kodelab;
     }
     
     

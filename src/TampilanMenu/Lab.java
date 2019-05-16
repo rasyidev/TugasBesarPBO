@@ -236,8 +236,7 @@ public class Lab extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNBATALActionPerformed
 
     private void cmburutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmburutActionPerformed
-        String kolom;
-
+       
         if (cmburut.getSelectedItem()=="KODE LAB"){
             tampilkanurut("kode_lab");
         }

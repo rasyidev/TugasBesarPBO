@@ -5,6 +5,7 @@
  */
 package tugasbesarpbo;
 
+import TampilanMenu.Masuk1;
 /**
  *
  * @author asus
@@ -15,6 +16,8 @@ public class TugasBesarPBO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Masuk1 m=new Masuk1();
+        m.setVisible(true);
         // TODO code application logic here
     }
     
