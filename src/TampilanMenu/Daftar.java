@@ -205,7 +205,7 @@ public class Daftar extends javax.swing.JFrame {
         }
         /*x.keySet().contains(NIM.getText()) untuk cek nim yang diinput ada atau tidak didalam list
         hashmap*/
-        if(nama.getText().equalsIgnoreCase(x.get(NIM.getText())) && x.keySet().contains(NIM.getText())==true){
+        if(nama.getText().equalsIgnoreCase(x.get(NIM.getText())) ){
             return true;
         }else{
             return false;
