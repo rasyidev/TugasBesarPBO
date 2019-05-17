@@ -7,6 +7,13 @@ package TampilanMenu;
 
 import penjelasan.Jadwal1;
 import ToDb.DBJadwal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -194,7 +201,7 @@ public class menuJadwal extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/graphic-background-png-5.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 350, 160));
 
-        jam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "09:00", "11:00", "13:00", "15:00", "17:00" }));
+        jam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00:00", "09:00:00", "11:00:00", "13:00:00", "15:00:00", "17:00:00" }));
         jam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jamActionPerformed(evt);
@@ -236,6 +243,40 @@ public class menuJadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        HashSet<String> cekjam = new HashSet();
+        HashSet<String> ceklab = new HashSet();
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/labkom_itera1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            
+            String select="select * from jadwal where jam='"+jam.getSelectedItem()+"' and hari='"+cmbhari.getSelectedItem()+"'";
+            ResultSet rset=stmt.executeQuery(select);
+            
+            while(rset.next()){
+                cekjam.add(rset.getString("jam"));
+                ceklab.add(rset.getString("kode_lab"));
+            }
+        } catch (SQLException ex) {
+            
+        }
+        
+        if(cekjam.contains(jam.getSelectedItem())==false){
+            insert();
+            }else{
+                if(ceklab.contains(tfkodelab.getText().toUpperCase())==true){
+                    JOptionPane.showMessageDialog(null, "jadwal sudah ada"); 
+                }else{
+                    insert();
+                }
+            }
+        
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    public void insert(){
         int id=Integer.parseInt(tfid.getText());
         Jadwal1 jad = new Jadwal1(id,tfprodi.getText(),tfmatkul.getText(),tfkodelab.getText().toUpperCase(),cmbhari.getSelectedItem().toString(),
                 jam.getSelectedItem().toString());
@@ -243,8 +284,8 @@ public class menuJadwal extends javax.swing.JFrame {
         x.setJadwal(jad);
         x.add();
         tampilkandata();
-    }//GEN-LAST:event_btnaddActionPerformed
-
+    }
+    
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
         int id=Integer.parseInt(tfid.getText());
         Jadwal1 jad = new Jadwal1(id,tfprodi.getText(),tfmatkul.getText(),tfkodelab.getText().toUpperCase(),cmbhari.getSelectedItem().toString(),
